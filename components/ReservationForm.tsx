@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Dict, Locale } from "@/lib/i18n";
 import {
   MOTIF_KEYS,
@@ -13,6 +13,8 @@ const CLINIC_EMAIL = "contact@clinicglobalestheticgeneva.ch";
 const WHATSAPP = "41783464201";
 
 type Status = "idle" | "sending" | "sent" | "error";
+
+const FIELD_ORDER = ["rdv-service", "rdv-date", "rdv-slot", "rdv-name", "rdv-email", "rdv-phone", "rdv-message"];
 
 export default function ReservationForm({
   locale,
@@ -33,6 +35,7 @@ export default function ReservationForm({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<Status>("idle");
   const [errorKind, setErrorKind] = useState<string>("");
+  const formSection = useRef<HTMLElement>(null);
 
   const today = new Date().toISOString().slice(0, 10);
 
@@ -44,6 +47,14 @@ export default function ReservationForm({
   const selectMotif = (key: MotifKey) => {
     setMotif(key);
     setService("");
+    // guide l'utilisateur vers l'étape suivante
+    requestAnimationFrame(() => {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      formSection.current?.scrollIntoView({
+        behavior: reduced ? "auto" : "smooth",
+        block: "start",
+      });
+    });
   };
 
   const errMsg = (key: string) =>
@@ -51,7 +62,7 @@ export default function ReservationForm({
 
   const summaryText = () =>
     [
-      motif && `${t.step1.replace(/^\d+ — /, "")} : ${motifLabelLocal(motif)}`,
+      motif && `${t.rail[0]} : ${motifLabelLocal(motif)}`,
       service && `${t.serviceLabel.replace(/ \(.*\)$/, "")} : ${service}`,
       `${t.nameLabel.replace(" *", "")} : ${name}`,
       `${t.emailLabel.replace(" *", "")} : ${email}`,
@@ -89,7 +100,14 @@ export default function ReservationForm({
     };
     const clientErrors = validateReservation(payload);
     setErrors(clientErrors);
-    if (Object.keys(clientErrors).length > 0) return;
+    if (Object.keys(clientErrors).length > 0) {
+      // amène le focus sur le premier champ en erreur
+      const first = FIELD_ORDER.find((id) =>
+        clientErrors[id.replace("rdv-", "")] !== undefined,
+      );
+      if (first) document.getElementById(first)?.focus();
+      return;
+    }
 
     setStatus("sending");
     try {
@@ -114,228 +132,221 @@ export default function ReservationForm({
 
   if (status === "sent") {
     return (
-      <div className="booking-card">
-        <div className="eyebrow">{t.sentEyebrow}</div>
-        <h3>{t.sentTitle}</h3>
-        <div className="form-status ok">
-          <p>{t.sentText1}</p>
-          <p style={{ marginBottom: 0 }}>
-            {t.sentText2} {email}.
-          </p>
+      <section className="rdv-flow">
+        <div className="wrap">
+          <div className="rdv-success">
+            <div className="eyebrow">{t.sentEyebrow}</div>
+            <h2>{t.sentTitle}</h2>
+            <div className="form-status ok" style={{ marginTop: 20 }}>
+              <p>{t.sentText1}</p>
+              <p style={{ marginBottom: 0 }}>
+                {t.sentText2} {email}.
+              </p>
+            </div>
+          </div>
         </div>
-        <ContactLines
-          labels={t.contactLabels}
-          whatsappText={motif ? `${t.whatsappIntro} ${motifLabelLocal(motif)}.` : undefined}
-        />
-      </div>
+      </section>
     );
   }
 
-  return (
-    <div className="booking-card">
-      <h3 className="booking-step-title mono">{t.step1}</h3>
-      <div className="motif-grid">
-        {MOTIF_KEYS.map((key) => (
-          <button
-            key={key}
-            type="button"
-            className={`motif-card${motif === key ? " selected" : ""}`}
-            onClick={() => selectMotif(key)}
-          >
-            <span className="motif-label">
-              {t.motifs[key].label}
-              {key === "consultation" && <em className="free-tag">{t.freeTag}</em>}
-            </span>
-            <span>{t.motifs[key].desc}</span>
-          </button>
-        ))}
-      </div>
-      {errors.motif && !motif && <p className="field-error">{errMsg("motif")}</p>}
-
-      {/* inert + visibility retirent le panneau replié du tab-order et des lecteurs d'écran */}
-      <div className={`booking-step2${motif ? " open" : ""}`} inert={!motif}>
-        <form onSubmit={submit} noValidate>
-          <h3 className="booking-step-title mono">{t.step2}</h3>
-          <div className="form-grid">
-            {serviceOptions && (
-              <div className="field full">
-                <label htmlFor="rdv-service">{t.serviceLabel}</label>
-                <select
-                  id="rdv-service"
-                  value={service}
-                  onChange={(e) => setService(e.target.value)}
-                >
-                  <option value="">{t.serviceAny}</option>
-                  {serviceOptions.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-                {errors.service && <span className="field-error">{errMsg("service")}</span>}
-              </div>
-            )}
-            <div className="field">
-              <label htmlFor="rdv-date">{t.dateLabel}</label>
-              <input
-                id="rdv-date"
-                type="date"
-                min={today}
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-              {errors.date && <span className="field-error">{errMsg("date")}</span>}
-            </div>
-            <div className="field">
-              <label htmlFor="rdv-slot">{t.slotLabel}</label>
-              <select
-                id="rdv-slot"
-                value={timeslot}
-                onChange={(e) => setTimeslot(e.target.value)}
-              >
-                {TIMESLOT_VALUES.map((value) => (
-                  <option key={value} value={value}>
-                    {t.slots[value]}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <h3 className="booking-step-title mono" style={{ marginTop: 18 }}>{t.step3}</h3>
-          <div className="form-grid">
-            <div className="field">
-              <label htmlFor="rdv-name">{t.nameLabel}</label>
-              <input
-                id="rdv-name"
-                type="text"
-                autoComplete="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              {errors.name && <span className="field-error">{errMsg("name")}</span>}
-            </div>
-            <div className="field">
-              <label htmlFor="rdv-email">{t.emailLabel}</label>
-              <input
-                id="rdv-email"
-                type="email"
-                autoComplete="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              {errors.email && <span className="field-error">{errMsg("email")}</span>}
-            </div>
-            <div className="field">
-              <label htmlFor="rdv-phone">{t.phoneLabel}</label>
-              <input
-                id="rdv-phone"
-                type="tel"
-                autoComplete="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-              {errors.phone && <span className="field-error">{errMsg("phone")}</span>}
-            </div>
-            <div className="field">
-              <label htmlFor="rdv-message">{t.messageLabel}</label>
-              <textarea
-                id="rdv-message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder={t.messagePlaceholder}
-              />
-              {errors.message && <span className="field-error">{errMsg("message")}</span>}
-            </div>
-            {/* Honeypot anti-spam — invisible pour les humains */}
-            <div className="hp-field" aria-hidden="true">
-              <label htmlFor="rdv-website">Site web</label>
-              <input
-                id="rdv-website"
-                type="text"
-                tabIndex={-1}
-                autoComplete="off"
-                value={website}
-                onChange={(e) => setWebsite(e.target.value)}
-              />
-            </div>
-          </div>
-
-          {status === "error" && (
-            <div className="form-status ko" style={{ marginTop: 12 }}>
-              {errorKind === "validation" ? (
-                <p style={{ marginBottom: 0 }}>{t.errorValidation}</p>
-              ) : errorKind === "rate_limited" ? (
-                <p style={{ marginBottom: 0 }}>{t.errorRate}</p>
-              ) : (
-                <>
-                  <p>
-                    {t.errorSend1}
-                    <a href={mailtoFallback()}>{t.errorSendMail}</a>
-                    {t.errorSendOr}
-                    <a href={whatsappFallback()} target="_blank" rel="noopener noreferrer">
-                      WhatsApp
-                    </a>
-                    .
-                  </p>
-                  <p style={{ marginBottom: 0 }}>
-                    {t.errorSend2}
-                    <a href="tel:+41783464201">(+41) 078 346 42 01</a>
-                  </p>
-                </>
-              )}
-            </div>
-          )}
-
-          <div
-            style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 16, flexWrap: "wrap" }}
-          >
-            <button type="submit" className="btn btn-laser" disabled={status === "sending"}>
-              {status === "sending" ? t.submitting : t.submit}
-            </button>
-            <p className="form-note">{t.note}</p>
-          </div>
-        </form>
-      </div>
-
-      <div style={{ height: 1, background: "var(--line)", margin: "6px 0" }}></div>
-      <ContactLines
-        labels={t.contactLabels}
-        whatsappText={motif ? `${t.whatsappIntro} ${motifLabelLocal(motif)}.` : undefined}
-      />
-    </div>
-  );
-}
-
-function ContactLines({
-  labels,
-  whatsappText,
-}: {
-  labels: Dict["booking"]["contactLabels"];
-  whatsappText?: string;
-}) {
-  const waHref = whatsappText
-    ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(whatsappText)}`
-    : `https://wa.me/${WHATSAPP}`;
+  const railState = (i: number): string => {
+    if (i === 0) return motif ? "done" : "on";
+    return motif ? "on" : "";
+  };
 
   return (
     <>
-      <div className="contact-line">
-        <span className="k mono">{labels.phone}</span>
-        <a href="tel:+41783464201">(+41) 078 346 42 01</a>
-      </div>
-      <div className="contact-line">
-        <span className="k mono">{labels.mail}</span>
-        <a href={`mailto:${CLINIC_EMAIL}`}>{CLINIC_EMAIL}</a>
-      </div>
-      <div className="contact-line">
-        <span className="k mono">{labels.whatsapp}</span>
-        <a href={waHref} target="_blank" rel="noopener noreferrer">
-          WhatsApp
-        </a>
-      </div>
+      {/* ============ ÉTAPE 01 — MOTIF ============ */}
+      <section className="rdv-flow">
+        <div className="wrap">
+          <ol className="rdv-rail">
+            {t.rail.map((label, i) => (
+              <li key={label} className={railState(i)}>
+                <span className="n">{String(i + 1).padStart(2, "0")}</span>
+                {label}
+              </li>
+            ))}
+          </ol>
+
+          <div className="rdv-motifs">
+            {MOTIF_KEYS.map((key) => (
+              <button
+                key={key}
+                type="button"
+                className={`rdv-motif${motif === key ? " selected" : ""}`}
+                onClick={() => selectMotif(key)}
+                aria-pressed={motif === key}
+              >
+                <span className="check" aria-hidden="true">✓</span>
+                <span className="t">
+                  {t.motifs[key].label}
+                  {key === "consultation" && <em className="free-tag">{t.freeTag}</em>}
+                </span>
+                <span className="d">{t.motifs[key].desc}</span>
+              </button>
+            ))}
+          </div>
+          {errors.motif && !motif && (
+            <p className="field-error" style={{ marginTop: 14, textAlign: "center" }}>
+              {errMsg("motif")}
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* ============ ÉTAPES 02 & 03 — FORMULAIRE ============ */}
+      <section
+        ref={formSection}
+        className={`section-alt rdv-form-section${motif ? "" : " waiting"}`}
+        inert={!motif}
+      >
+        <div className="wrap">
+          <form className="form-shell" onSubmit={submit} noValidate>
+            <h2 className="booking-step-title">{t.step2}</h2>
+            <div className="form-grid">
+              {serviceOptions && (
+                <div className="field full">
+                  <label htmlFor="rdv-service">{t.serviceLabel}</label>
+                  <select
+                    id="rdv-service"
+                    value={service}
+                    onChange={(e) => setService(e.target.value)}
+                  >
+                    <option value="">{t.serviceAny}</option>
+                    {serviceOptions.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.service && <span className="field-error">{errMsg("service")}</span>}
+                </div>
+              )}
+              <div className="field">
+                <label htmlFor="rdv-date">{t.dateLabel}</label>
+                <input
+                  id="rdv-date"
+                  type="date"
+                  min={today}
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+                {errors.date && <span className="field-error">{errMsg("date")}</span>}
+              </div>
+              <div className="field">
+                <label htmlFor="rdv-slot">{t.slotLabel}</label>
+                <select
+                  id="rdv-slot"
+                  value={timeslot}
+                  onChange={(e) => setTimeslot(e.target.value)}
+                >
+                  {TIMESLOT_VALUES.map((value) => (
+                    <option key={value} value={value}>
+                      {t.slots[value]}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <h2 className="booking-step-title" style={{ marginTop: 40 }}>
+              {t.step3}
+            </h2>
+            <div className="form-grid">
+              <div className="field">
+                <label htmlFor="rdv-name">{t.nameLabel}</label>
+                <input
+                  id="rdv-name"
+                  type="text"
+                  autoComplete="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+                {errors.name && <span className="field-error">{errMsg("name")}</span>}
+              </div>
+              <div className="field">
+                <label htmlFor="rdv-email">{t.emailLabel}</label>
+                <input
+                  id="rdv-email"
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                {errors.email && <span className="field-error">{errMsg("email")}</span>}
+              </div>
+              <div className="field">
+                <label htmlFor="rdv-phone">{t.phoneLabel}</label>
+                <input
+                  id="rdv-phone"
+                  type="tel"
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                {errors.phone && <span className="field-error">{errMsg("phone")}</span>}
+              </div>
+              <div className="field">
+                <label htmlFor="rdv-message">{t.messageLabel}</label>
+                <textarea
+                  id="rdv-message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder={t.messagePlaceholder}
+                />
+                {errors.message && <span className="field-error">{errMsg("message")}</span>}
+              </div>
+              {/* Honeypot anti-spam — invisible pour les humains */}
+              <div className="hp-field" aria-hidden="true">
+                <label htmlFor="rdv-website">Site web</label>
+                <input
+                  id="rdv-website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
+            </div>
+
+            {status === "error" && (
+              <div className="form-status ko" style={{ marginTop: 20 }}>
+                {errorKind === "validation" ? (
+                  <p style={{ marginBottom: 0 }}>{t.errorValidation}</p>
+                ) : errorKind === "rate_limited" ? (
+                  <p style={{ marginBottom: 0 }}>{t.errorRate}</p>
+                ) : (
+                  <>
+                    <p>
+                      {t.errorSend1}
+                      <a href={mailtoFallback()}>{t.errorSendMail}</a>
+                      {t.errorSendOr}
+                      <a href={whatsappFallback()} target="_blank" rel="noopener noreferrer">
+                        WhatsApp
+                      </a>
+                      .
+                    </p>
+                    <p style={{ marginBottom: 0 }}>
+                      {t.errorSend2}
+                      <a href="tel:+41783464201">(+41) 078 346 42 01</a>
+                    </p>
+                  </>
+                )}
+              </div>
+            )}
+
+            <div className="rdv-submit">
+              <button type="submit" className="btn btn-laser" disabled={status === "sending"}>
+                {status === "sending" ? t.submitting : t.submit}
+              </button>
+              <p className="form-note">{t.note}</p>
+            </div>
+          </form>
+        </div>
+      </section>
     </>
   );
 }

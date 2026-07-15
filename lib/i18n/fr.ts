@@ -417,6 +417,11 @@ export const fr = {
     mailSubject: "Demande de rendez-vous",
     mapTitle: "Localisation Clinic Global Esthetic, Av. Louis-Casaï 71, 1216 Meyrin",
     contactLabels: { phone: "TÉL", mail: "MAIL", whatsapp: "WHATSAPP" },
+    rail: ["Motif", "Disponibilités", "Coordonnées"],
+    directTitle: "Vous préférez un contact direct ?",
+    directText:
+      "Appelez, écrivez un message ou passez par WhatsApp — nous répondons rapidement pendant les heures d'ouverture.",
+    tileWhatsappText: "Écrire un message",
   },
 
   gift: {
