@@ -6,10 +6,11 @@ import {
   validateReservation,
   type ReservationPayload,
 } from "@/lib/reservation";
+import { CONTACT } from "@/lib/site";
 
 export const runtime = "nodejs";
 
-const CLINIC_EMAIL = process.env.RESERVATION_TO ?? "contact@clinicglobalestheticgeneva.ch";
+const CLINIC_EMAIL = process.env.RESERVATION_TO ?? CONTACT.email;
 
 // Limite anti-abus : 5 demandes / 10 minutes / IP (instance unique).
 const WINDOW_MS = 10 * 60 * 1000;
