@@ -1,4 +1,5 @@
 import type { Dict } from "@/lib/i18n";
+import { CONTACT } from "@/lib/site";
 
 export default function GiftBanner({ t }: { t: Dict["gift"] }) {
   return (
@@ -9,7 +10,7 @@ export default function GiftBanner({ t }: { t: Dict["gift"] }) {
         <p>{t.text}</p>
       </div>
       <a
-        href={`mailto:contact@clinicglobalestheticgeneva.ch?subject=${encodeURIComponent(t.mailSubject)}`}
+        href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(t.mailSubject)}`}
         className="btn btn-ghost"
       >
         {t.cta}

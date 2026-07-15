@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { p, type Dict, type Locale } from "@/lib/i18n";
+import { CONTACT } from "@/lib/site";
 
 export default function Footer({
   locale,
@@ -35,10 +36,8 @@ export default function Footer({
           </div>
           <div>
             <h4>{t.contactTitle}</h4>
-            <a href="tel:+41783464201">(+41) 078 346 42 01</a>
-            <a href="mailto:contact@clinicglobalestheticgeneva.ch">
-              contact@clinicglobalestheticgeneva.ch
-            </a>
+            <a href={`tel:${CONTACT.phone}`}>{CONTACT.phoneDisplay}</a>
+            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
             <a
               href="https://www.google.com/maps?q=Av.+Louis-Casa%C3%AF+71,+1216+Meyrin"
               target="_blank"

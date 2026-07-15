@@ -8,9 +8,10 @@ import {
   validateReservation,
   type MotifKey,
 } from "@/lib/reservation";
+import { CONTACT } from "@/lib/site";
 
-const CLINIC_EMAIL = "contact@clinicglobalestheticgeneva.ch";
-const WHATSAPP = "41783464201";
+const CLINIC_EMAIL = CONTACT.email;
+const WHATSAPP = CONTACT.whatsapp;
 
 type Status = "idle" | "sending" | "sent" | "error";
 

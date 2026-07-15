@@ -3,6 +3,7 @@ import GiftBanner from "@/components/GiftBanner";
 import ReservationForm from "@/components/ReservationForm";
 import Reveal from "@/components/Reveal";
 import { getDict, p, type Locale } from "@/lib/i18n";
+import { CONTACT } from "@/lib/site";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -76,16 +77,16 @@ export default async function RendezVousPage({ params }: PageProps) {
                 {b.directText}
               </h2>
               <div className="contact-tiles">
-                <a className="contact-tile" href="tel:+41783464201">
+                <a className="contact-tile" href={`tel:${CONTACT.phone}`}>
                   {ICONS.phone}
                   <span>
                     <span className="lbl">{b.contactLabels.phone}</span>
-                    <span className="val">(+41) 078 346 42 01</span>
+                    <span className="val">{CONTACT.phoneDisplay}</span>
                   </span>
                 </a>
                 <a
                   className="contact-tile"
-                  href={`https://wa.me/41783464201`}
+                  href={`https://wa.me/${CONTACT.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -95,11 +96,11 @@ export default async function RendezVousPage({ params }: PageProps) {
                     <span className="val">{b.tileWhatsappText}</span>
                   </span>
                 </a>
-                <a className="contact-tile" href="mailto:contact@clinicglobalestheticgeneva.ch">
+                <a className="contact-tile" href={`mailto:${CONTACT.email}`}>
                   {ICONS.mail}
                   <span>
                     <span className="lbl">{b.contactLabels.mail}</span>
-                    <span className="val">contact@clinicglobalestheticgeneva.ch</span>
+                    <span className="val">{CONTACT.email}</span>
                   </span>
                 </a>
               </div>
