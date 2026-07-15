@@ -49,6 +49,11 @@ export default function Footer({
         </div>
         <div className="footer-bottom">
           <span>© {year} {t.rights}</span>
+          <span className="footer-legal">
+            <Link href={p(locale, "/mentions-legales")}>{t.legalNotice}</Link>
+            {" · "}
+            <Link href={p(locale, "/confidentialite")}>{t.privacy}</Link>
+          </span>
         </div>
       </div>
     </footer>

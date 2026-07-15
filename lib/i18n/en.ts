@@ -440,6 +440,81 @@ export const en: typeof fr = {
     navTitle: "Navigation",
     contactTitle: "Contact",
     rights: "Clinic Global Esthetic — Meyrin, Geneva",
+    legalNotice: "Legal notice",
+    privacy: "Privacy",
+  },
+
+  legal: {
+    noticeTitle: "Legal notice",
+    noticeMeta: "Legal notice — Clinic Global Esthetic, Meyrin Geneva",
+    noticeSections: [
+      {
+        h: "Site operator",
+        p: [
+          "Clinic Global Esthetic — medical laser hair removal and aesthetic treatments clinic.",
+          "Av. Louis-Casaï 71, 1216 Meyrin, Switzerland.",
+          "Phone: (+41) 078 346 42 01 · E-mail: contact@globalaesthetic.ch",
+        ],
+      },
+      {
+        h: "Site content",
+        p: [
+          "The information published on this site is provided for information purposes and does not replace a personal medical consultation or advice. Treatment results vary from person to person; before/after photographs illustrate individual cases and are not contractual.",
+          "Clinic Global Esthetic strives to keep information accurate and up to date, without guarantee of completeness. Displayed prices may change without notice.",
+        ],
+      },
+      {
+        h: "Intellectual property",
+        p: [
+          "All content on this site (texts, photographs, illustrations, logo) is the property of Clinic Global Esthetic unless stated otherwise. Any reproduction without prior written authorisation is prohibited.",
+        ],
+      },
+      {
+        h: "Hosting",
+        p: [
+          "This site is hosted in Switzerland by Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Geneva.",
+        ],
+      },
+    ],
+    privacyTitle: "Privacy policy",
+    privacyMeta: "Privacy policy — Clinic Global Esthetic, Meyrin Geneva",
+    privacyIntro:
+      "Clinic Global Esthetic takes the protection of your personal data seriously. This policy describes the data processed through this site, in accordance with the Swiss Federal Act on Data Protection (nFADP).",
+    privacySections: [
+      {
+        h: "Data controller",
+        p: [
+          "Clinic Global Esthetic, Av. Louis-Casaï 71, 1216 Meyrin, Switzerland — contact@globalaesthetic.ch, (+41) 078 346 42 01.",
+        ],
+      },
+      {
+        h: "Data collected and purpose",
+        p: [
+          "The booking form collects the data you enter: reason for visit, preferred treatment, first and last name, e-mail address, phone number (optional), preferred date and time slot, and an optional message.",
+          "This data is used exclusively to process your appointment request and get back to you. It is neither sold nor shared with third parties for commercial purposes.",
+        ],
+      },
+      {
+        h: "Transmission and retention",
+        p: [
+          "Requests are sent by e-mail through the infrastructure of Infomaniak Network SA, whose servers are located in Switzerland. They are kept for as long as needed to process your request and follow up on the care relationship, then deleted.",
+        ],
+      },
+      {
+        h: "Third-party services",
+        p: [
+          "The booking page embeds a Google Map, subject to Google's privacy terms. Some images on this site are served by the Wix content delivery network (static.wixstatic.com).",
+          "This site uses no tracking cookies, no analytics and no advertising.",
+        ],
+      },
+      {
+        h: "Your rights",
+        p: [
+          "Under the nFADP, you have the right to access, rectify and delete your data. To exercise these rights, write to contact@globalaesthetic.ch.",
+          "You may also contact the Swiss Federal Data Protection and Information Commissioner (FDPIC) in case of dispute.",
+        ],
+      },
+    ],
   },
 
   notFound: {

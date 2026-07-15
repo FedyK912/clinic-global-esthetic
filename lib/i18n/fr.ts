@@ -438,6 +438,81 @@ export const fr = {
     navTitle: "Navigation",
     contactTitle: "Contact",
     rights: "Clinic Global Esthetic — Meyrin, Genève",
+    legalNotice: "Mentions légales",
+    privacy: "Confidentialité",
+  },
+
+  legal: {
+    noticeTitle: "Mentions légales",
+    noticeMeta: "Mentions légales — Clinic Global Esthetic, Meyrin Genève",
+    noticeSections: [
+      {
+        h: "Exploitant du site",
+        p: [
+          "Clinic Global Esthetic — cabinet d'épilation laser médicale et de soins esthétiques.",
+          "Av. Louis-Casaï 71, 1216 Meyrin, Suisse.",
+          "Téléphone : (+41) 078 346 42 01 · E-mail : contact@globalaesthetic.ch",
+        ],
+      },
+      {
+        h: "Contenu du site",
+        p: [
+          "Les informations publiées sur ce site ont un caractère informatif et ne remplacent en aucun cas une consultation ou un avis médical personnalisé. Les résultats des soins varient d'une personne à l'autre ; les photographies avant/après illustrent des cas individuels et n'ont pas de valeur contractuelle.",
+          "Clinic Global Esthetic s'efforce de maintenir des informations exactes et à jour, sans garantie d'exhaustivité. Les tarifs affichés peuvent être modifiés sans préavis.",
+        ],
+      },
+      {
+        h: "Propriété intellectuelle",
+        p: [
+          "L'ensemble des contenus de ce site (textes, photographies, illustrations, logo) est la propriété de Clinic Global Esthetic, sauf mention contraire. Toute reproduction sans autorisation écrite préalable est interdite.",
+        ],
+      },
+      {
+        h: "Hébergement",
+        p: [
+          "Ce site est hébergé en Suisse par Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Genève.",
+        ],
+      },
+    ],
+    privacyTitle: "Politique de confidentialité",
+    privacyMeta: "Politique de confidentialité — Clinic Global Esthetic, Meyrin Genève",
+    privacyIntro:
+      "Clinic Global Esthetic attache une grande importance à la protection de vos données personnelles. La présente politique décrit les données traitées via ce site, conformément à la loi fédérale suisse sur la protection des données (nLPD).",
+    privacySections: [
+      {
+        h: "Responsable du traitement",
+        p: [
+          "Clinic Global Esthetic, Av. Louis-Casaï 71, 1216 Meyrin, Suisse — contact@globalaesthetic.ch, (+41) 078 346 42 01.",
+        ],
+      },
+      {
+        h: "Données collectées et finalité",
+        p: [
+          "Le formulaire de rendez-vous collecte les données que vous saisissez : motif de visite, soin souhaité, prénom et nom, adresse e-mail, téléphone (facultatif), date et créneau souhaités, message éventuel.",
+          "Ces données sont utilisées exclusivement pour traiter votre demande de rendez-vous et vous recontacter. Elles ne sont ni vendues, ni transmises à des tiers à des fins commerciales.",
+        ],
+      },
+      {
+        h: "Transmission et conservation",
+        p: [
+          "Les demandes sont transmises par e-mail via l'infrastructure d'Infomaniak Network SA, dont les serveurs sont situés en Suisse. Elles sont conservées le temps nécessaire au traitement de votre demande et au suivi de la relation de soin, puis supprimées.",
+        ],
+      },
+      {
+        h: "Services tiers",
+        p: [
+          "La page de rendez-vous intègre une carte Google Maps, soumise aux conditions de confidentialité de Google. Certaines images du site sont servies par le réseau de diffusion Wix (static.wixstatic.com).",
+          "Ce site n'utilise ni cookies de suivi, ni outil d'analyse d'audience, ni publicité.",
+        ],
+      },
+      {
+        h: "Vos droits",
+        p: [
+          "Conformément à la nLPD, vous disposez d'un droit d'accès, de rectification et d'effacement de vos données. Pour l'exercer, écrivez-nous à contact@globalaesthetic.ch.",
+          "Vous pouvez également vous adresser au Préposé fédéral à la protection des données et à la transparence (PFPDT) en cas de litige.",
+        ],
+      },
+    ],
   },
 
   notFound: {

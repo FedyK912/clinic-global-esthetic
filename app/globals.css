@@ -429,6 +429,14 @@ footer{background:var(--paper); color:var(--ink-soft); padding:64px 0 28px; font
 .footer-grid a:hover{color:var(--laser-dark);}
 .footer-logo{font-family:var(--font-fraunces),serif; font-size:22px; color:var(--ink); margin-bottom:14px;}
 .footer-bottom{display:flex; justify-content:space-between; padding-top:22px; flex-wrap:wrap; gap:10px;}
+.footer-legal a{color:var(--ink-soft); text-decoration:none;}
+.footer-legal a:hover{color:var(--laser-dark);}
+
+/* ---------- PAGES LÉGALES ---------- */
+.legal-body{max-width:760px;}
+.legal-body h2{font-size:20px; margin:36px 0 12px;}
+.legal-body div:first-child h2{margin-top:0;}
+.legal-body p{color:var(--ink-soft); font-size:15px; margin:0 0 12px; line-height:1.7;}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:960px){
