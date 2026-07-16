@@ -1,23 +1,28 @@
-"use client";
+import Image from "next/image";
 
-import dynamic from "next/dynamic";
-
-const LaserScene = dynamic(() => import("./three/LaserScene"), {
-  ssr: false,
-  loading: () => <div className="scene-loading" aria-hidden="true"></div>,
-});
-
+/**
+ * Visuel du hero : photographie réelle d'une séance au cabinet,
+ * traversée par le balayage laser signature du site (CSS pur).
+ */
 export default function HeroVisual({
   caption,
-  ariaLabel,
+  alt,
 }: {
   caption: readonly [string, string] | readonly string[];
-  ariaLabel: string;
+  alt: string;
 }) {
   return (
-    <div className="hero-visual hero-visual-3d" role="img" aria-label={ariaLabel}>
-      <LaserScene />
-      <div className="scan-caption">
+    <div className="hero-visual">
+      <Image
+        src="/images/laser-seance-jambes.jpg"
+        alt={alt}
+        width={1200}
+        height={1600}
+        priority
+        sizes="(max-width: 960px) 100vw, 45vw"
+      />
+      <div className="scan-line" aria-hidden="true"></div>
+      <div className="scan-caption" aria-hidden="true">
         <span>{caption[0]}</span>
         <span>{caption[1]}</span>
       </div>

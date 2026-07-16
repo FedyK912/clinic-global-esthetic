@@ -5,6 +5,7 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ConsultBanner from "@/components/ConsultBanner";
 import Reveal from "@/components/Reveal";
 import { getDict, p, type Locale } from "@/lib/i18n";
+import { BODY_SERVICES } from "@/lib/services";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -26,31 +27,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const CARDS = [
-  {
-    priceFr: "Dès 170.-",
-    priceEn: "From 170.-",
-    perSession: true,
-    img: "https://static.wixstatic.com/media/aa06a6_2a6014ed8bd34db0903d2dac85d2f8d3~mv2.jpg/v1/fill/w_500,h_450,al_c,q_85,enc_avif,quality_auto/aa06a6_2a6014ed8bd34db0903d2dac85d2f8d3~mv2.jpg",
-  },
-  {
-    priceFr: "150.-",
-    priceEn: "150.-",
-    perSession: true,
-    img: "https://static.wixstatic.com/media/aa06a6_a4d5cfcc0a124bb1a48c179de3a94f0c~mv2.jpg/v1/fill/w_500,h_450,al_c,q_85,enc_avif,quality_auto/aa06a6_a4d5cfcc0a124bb1a48c179de3a94f0c~mv2.jpg",
-  },
-  {
-    priceFr: "120.-",
-    priceEn: "120.-",
-    perSession: false,
-    img: "https://static.wixstatic.com/media/aa06a6_c0f821808d3f4725871230d3d6c1724d~mv2.jpeg/v1/fill/w_500,h_450,al_c,q_85,enc_avif,quality_auto/muscu.jpeg",
-  },
-];
-
 export default async function TraitementsCorpsPage({ params }: PageProps) {
   const { locale: rawLocale } = await params;
   const locale = rawLocale as Locale;
   const t = getDict(locale);
+
+  const bookHref = (service: string) =>
+    `${p(locale, "/rendez-vous")}?motif=corps&service=${encodeURIComponent(service)}#demande`;
 
   return (
     <>
@@ -68,15 +51,19 @@ export default async function TraitementsCorpsPage({ params }: PageProps) {
 
       <section>
         <div className="wrap">
+          <Reveal className="section-head">
+            <h2>{t.body.gridTitle}</h2>
+          </Reveal>
           <Reveal className="service-grid" stagger>
             {t.body.traitements.map((traitement, i) => (
               <div className="service-card" key={traitement.title}>
                 <div className="img-box">
                   <Image
-                    src={CARDS[i].img}
+                    src={BODY_SERVICES[i].img}
                     alt={traitement.alt}
-                    width={500}
-                    height={450}
+                    width={800}
+                    height={720}
+                    sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
                   />
                 </div>
                 <div className="body">
@@ -84,23 +71,23 @@ export default async function TraitementsCorpsPage({ params }: PageProps) {
                   <p>{traitement.text}</p>
                   <div className="price-tag">
                     <span>
-                      {locale === "fr" ? CARDS[i].priceFr : CARDS[i].priceEn}
-                      <small>{CARDS[i].perSession ? t.common.perSession : t.common.per45}</small>
+                      {locale === "fr" ? BODY_SERVICES[i].priceFr : BODY_SERVICES[i].priceEn}
+                      <small>
+                        {BODY_SERVICES[i].perSession ? t.common.perSession : t.common.per45}
+                      </small>
                     </span>
                     <span className="duration">
-                      {CARDS[i].perSession ? t.common.approx1h : t.common.dur45}
+                      {BODY_SERVICES[i].perSession ? t.common.approx1h : t.common.dur45}
                     </span>
                   </div>
+                  <Link className="card-cta" href={bookHref(t.booking.servicesCorps[i])}>
+                    {t.common.bookThis}
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </Link>
                 </div>
               </div>
             ))}
           </Reveal>
-
-          <div style={{ marginTop: 36, display: "flex", justifyContent: "center" }}>
-            <Link href={p(locale, "/rendez-vous")} className="btn btn-laser">
-              {t.body.cta}
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -134,7 +121,25 @@ export default async function TraitementsCorpsPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* ================= QUESTIONS FRÉQUENTES ================= */}
       <section>
+        <div className="wrap">
+          <Reveal className="section-head">
+            <div className="eyebrow">{t.laser.faqEyebrow}</div>
+            <h2>{t.body.faqTitle}</h2>
+          </Reveal>
+          <Reveal className="faq-list">
+            {t.body.faq.map((item, i) => (
+              <details className="pcat" key={item.q} open={i === 0}>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-alt">
         <div className="wrap">
           <Reveal>
             <ConsultBanner locale={locale} t={t.common} />

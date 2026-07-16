@@ -1,14 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "static.wixstatic.com",
-      },
-    ],
-  },
   async redirects() {
     return [
       // Français par défaut à la racine

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileCtaBar from "@/components/MobileCtaBar";
 import ScrollProgress from "@/components/ScrollProgress";
 import { getDict, LOCALES, type Locale } from "@/lib/i18n";
 import { CONTACT, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -123,6 +124,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         <Header locale={locale} t={t.nav} />
         {children}
         <Footer locale={locale} t={t.footer} nav={t.nav} />
+        <MobileCtaBar locale={locale} t={t.nav} />
       </body>
     </html>
   );

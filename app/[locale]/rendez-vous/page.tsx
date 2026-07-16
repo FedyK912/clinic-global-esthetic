@@ -58,6 +58,7 @@ export default async function RendezVousPage({ params }: PageProps) {
 
   return (
     <>
+      {/* ============ EN-TÊTE + DEUX VOIES DE RÉSERVATION ============ */}
       <section className="page-head">
         <div className="wrap">
           <div className="eyebrow">{t.nav.booking}</div>
@@ -67,38 +68,37 @@ export default async function RendezVousPage({ params }: PageProps) {
             <span className="pulse-dot" aria-hidden="true"></span>
             {t.common.freeBadge}
           </div>
+
+          <div className="booking-paths">
+            {BOOKING_EXTERNAL_URL && (
+              <div className="path-card primary">
+                <span className="path-tag">{b.paths.fresha.tag}</span>
+                <h2>{b.paths.fresha.title}</h2>
+                <p>{b.paths.fresha.text}</p>
+                <a
+                  href={BOOKING_EXTERNAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-laser"
+                >
+                  {b.paths.fresha.cta}
+                  <span className="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            )}
+            <div className="path-card">
+              <span className="path-tag">{b.paths.form.tag}</span>
+              <h2>{b.paths.form.title}</h2>
+              <p>{b.paths.form.text}</p>
+              <a href="#demande" className="btn btn-ghost">
+                {b.paths.form.cta}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Agenda externe (Fresha) — affiché dès que BOOKING_EXTERNAL_URL est défini */}
-      {BOOKING_EXTERNAL_URL && (
-        <section className="section-alt" style={{ padding: "64px 0" }}>
-          <div className="wrap">
-            <div className="consult-banner">
-              <div>
-                <div className="eyebrow" style={{ color: "#D9BC8C" }}>
-                  {b.onlineEyebrow}
-                </div>
-                <h3>{b.onlineTitle}</h3>
-                <p>{b.onlineText}</p>
-              </div>
-              <a
-                href={BOOKING_EXTERNAL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-laser"
-              >
-                {b.onlineCta}
-              </a>
-            </div>
-            <p className="form-note" style={{ marginTop: 18, textAlign: "center" }}>
-              {b.onlineOr}
-            </p>
-          </div>
-        </section>
-      )}
-
-      {/* Parcours de réservation en étapes (composant client) */}
+      {/* ============ FORMULAIRE DE DEMANDE (composant client) ============ */}
       <ReservationForm locale={locale} t={b} />
 
       {/* ============ CONTACT DIRECT + CARTE ============ */}
@@ -107,9 +107,7 @@ export default async function RendezVousPage({ params }: PageProps) {
           <Reveal className="rdv-direct">
             <div>
               <div className="eyebrow">{b.directTitle}</div>
-              <h2 style={{ fontSize: "clamp(24px, 3vw, 32px)", marginBottom: 14 }}>
-                {b.directText}
-              </h2>
+              <h2>{b.directText}</h2>
               <div className="contact-tiles">
                 <a className="contact-tile" href={`tel:${CONTACT.phone}`}>
                   {ICONS.phone}

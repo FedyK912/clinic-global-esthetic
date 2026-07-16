@@ -13,31 +13,41 @@ export default function PriceExplorer({
 }) {
   const [gender, setGender] = useState<Gender>("femmes");
 
-  // Le CTA « Voir les tarifs hommes » pointe vers #tarifs-hommes : on ouvre
-  // l'onglet correspondant et on scrolle jusqu'au tableau.
+  // Le CTA « Voir les tarifs hommes » pointe vers #tarifs-hommes : le scroll
+  // est natif (id réel ci-dessous) ; ici on bascule seulement l'onglet, au
+  // chargement comme au clic (le clic est réémis même si le hash n'a pas changé).
   useEffect(() => {
     const applyHash = () => {
-      if (window.location.hash === "#tarifs-hommes") {
-        setGender("hommes");
-        document.getElementById("priceExplorer")?.scrollIntoView({ block: "start" });
-      }
+      if (window.location.hash === "#tarifs-hommes") setGender("hommes");
     };
     applyHash();
     window.addEventListener("hashchange", applyHash);
-    return () => window.removeEventListener("hashchange", applyHash);
+    document.addEventListener("click", onAnchorClick);
+    function onAnchorClick(e: MouseEvent) {
+      const a = (e.target as HTMLElement).closest?.('a[href$="#tarifs-hommes"]');
+      if (a) setGender("hommes");
+    }
+    return () => {
+      window.removeEventListener("hashchange", applyHash);
+      document.removeEventListener("click", onAnchorClick);
+    };
   }, []);
 
   return (
-    <div className="price-explorer" id="priceExplorer" style={{ marginTop: 8 }}>
+    // id="tarifs-hommes" réel : l'ancre fonctionne aussi sans JavaScript,
+    // le listener hashchange ne sert plus qu'à basculer l'onglet.
+    <div className="price-explorer" id="tarifs-hommes" style={{ marginTop: 8 }}>
       <div className="price-toggle">
         <button
           className={gender === "femmes" ? "active" : undefined}
+          aria-pressed={gender === "femmes"}
           onClick={() => setGender("femmes")}
         >
           {t.women}
         </button>
         <button
           className={gender === "hommes" ? "active" : undefined}
+          aria-pressed={gender === "hommes"}
           onClick={() => setGender("hommes")}
         >
           {t.men}

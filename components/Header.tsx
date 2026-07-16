@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { p, type Dict, type Locale } from "@/lib/i18n";
+import { CONTACT } from "@/lib/site";
 
 export default function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeBtn = useRef<HTMLButtonElement>(null);
 
   const links = [
     { href: p(locale, "/"), label: t.home },
@@ -22,6 +24,21 @@ export default function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }
 
   const otherLocale: Locale = locale === "fr" ? "en" : "fr";
   const switchHref = pathname.replace(/^\/(fr|en)(?=\/|$)/, `/${otherLocale}`) || `/${otherLocale}`;
+
+  // Tiroir ouvert : scroll bloqué, focus déplacé, fermeture par Échap.
+  useEffect(() => {
+    if (!menuOpen) return;
+    document.body.style.overflow = "hidden";
+    closeBtn.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -39,7 +56,9 @@ export default function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }
             ))}
           </nav>
           <div className="nav-right">
-            <a className="tel-link" href="tel:+41783464201">078 346 42 01</a>
+            <a className="tel-link" href={`tel:${CONTACT.phone}`}>
+              078 346 42 01
+            </a>
             <Link
               className="lang-switch mono"
               href={switchHref}
@@ -48,11 +67,13 @@ export default function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }
               {otherLocale.toUpperCase()}
             </Link>
             <Link className="btn btn-laser btn-sm nav-cta" href={p(locale, "/rendez-vous")}>
-              {t.bookCta}
+              {t.bookCtaShort}
             </Link>
             <button
               className="burger"
               aria-label={t.openMenu}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
               onClick={() => setMenuOpen(true)}
             >
               <span></span>
@@ -63,9 +84,9 @@ export default function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }
         </div>
       </header>
 
-      <div className={`mobile-nav${menuOpen ? " open" : ""}`} inert={!menuOpen}>
+      <div id="mobile-nav" className={`mobile-nav${menuOpen ? " open" : ""}`} inert={!menuOpen}>
         <div className="close-row">
-          <button aria-label={t.closeMenu} onClick={() => setMenuOpen(false)}>
+          <button ref={closeBtn} aria-label={t.closeMenu} onClick={() => setMenuOpen(false)}>
             ×
           </button>
         </div>
@@ -79,9 +100,21 @@ export default function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }
             {link.label}
           </Link>
         ))}
-        <Link href={switchHref} className="mobile-lang mono" onClick={() => setMenuOpen(false)}>
-          {otherLocale === "en" ? "English version" : "Version française"}
-        </Link>
+        <div className="drawer-cta">
+          <Link
+            href={p(locale, "/rendez-vous")}
+            className="btn btn-laser"
+            onClick={() => setMenuOpen(false)}
+          >
+            {t.bookCta}
+          </Link>
+          <a className="drawer-tel mono" href={`tel:${CONTACT.phone}`}>
+            {CONTACT.phoneDisplay}
+          </a>
+          <Link href={switchHref} className="mobile-lang mono" onClick={() => setMenuOpen(false)}>
+            {otherLocale === "en" ? "English version" : "Version française"}
+          </Link>
+        </div>
       </div>
     </>
   );

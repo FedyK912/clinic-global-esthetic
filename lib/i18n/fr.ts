@@ -10,16 +10,17 @@ export const fr = {
     body: "Traitements du corps",
     booking: "Rendez-vous",
     bookCta: "Prendre rendez-vous",
+    bookCtaShort: "Réserver",
+    callCta: "Appeler",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
-    tagline: "Meyrin · Genève · Depuis 25 ans",
+    tagline: "Meyrin · Genève · Depuis plus de 25 ans",
   },
 
   common: {
     ourCare: "Nos soins",
-    discover: "Découvrir →",
     bookSlot: "Réserver un créneau",
-    seePricing: "Voir les soins & tarifs",
+    seePricing: "Tarifs épilation laser",
     perSession: " / séance",
     per45: " / 45 min",
     approx1h: "≈ 1 h",
@@ -30,13 +31,14 @@ export const fr = {
       "Bilan de votre peau et de votre pilosité, réponses à toutes vos questions et devis précis — en 30 minutes, sans engagement ni pression.",
     consultCta: "Réserver mon bilan gratuit",
     resultNote: "Résultat individuel constaté au cabinet — non contractuel.",
+    bookThis: "Réserver ce soin",
   },
 
   home: {
     metaTitle:
       "Clinic Global Esthetic — Épilation laser médicale & soins esthétiques, Genève",
     metaDesc:
-      "Cabinet d'épilation laser médicale et de soins esthétiques du visage et du corps à Meyrin, Genève. Première consultation gratuite, réponse sous 24 h ouvrées.",
+      "Cabinet d'épilation laser médicale et de soins esthétiques du visage et du corps à Meyrin, Genève. Première consultation gratuite, réponse en un jour ouvré.",
     heroEyebrow: "Épilation laser médicale · Genève",
     heroTitle1: "La précision d'un",
     heroTitle2: "geste ",
@@ -44,16 +46,15 @@ export const fr = {
     heroTitlePost: ",",
     heroTitle3: "pensée pour votre peau.",
     heroLead:
-      "Depuis plus de 25 ans, Clinic Global Esthetic accompagne ses patient·es à Meyrin avec des technologies médicales sérieuses, des protocoles personnalisés et une approche honnête — loin des promesses irréalistes.",
+      "Depuis plus de 25 ans, Clinic Global Esthetic accompagne ses patient·es à Meyrin avec des technologies médicales reconnues, des protocoles personnalisés et une approche honnête — loin des promesses irréalistes.",
     stats: [
-      { b: "25+", s: "ANS D'EXPÉRIENCE" },
-      { b: "80%", s: "RÉDUCTION PILOSITÉ CONSTATÉE" },
-      { b: "6–8", s: "SÉANCES EN MOYENNE" },
-      { b: "1216", s: "MEYRIN, GENÈVE" },
+      { b: "25+", s: "ans d'expérience" },
+      { b: "Jusqu'à 80%", s: "de réduction constatée, selon zone" },
+      { b: "6–8", s: "séances en moyenne" },
     ],
-    scanCaption: ["DIODE 810NM", "SÉANCE EN COURS"],
-    heroSceneAria:
-      "Illustration 3D — pièce à main de laser médical balayant la peau de son faisceau",
+    scanCaption: ["DIODE 810NM — AU CABINET", "SÉANCE RÉELLE"],
+    heroPhotoAlt:
+      "Séance d'épilation laser médicale au cabinet — traitement des jambes après marquage des zones",
     aboutEyebrow: "Notre histoire",
     aboutTitle: "Un cabinet, une exigence : la vôtre.",
     aboutP1:
@@ -61,9 +62,21 @@ export const fr = {
     aboutP2:
       "Installés à Meyrin, nous avons fait le choix de technologies médicales reconnues plutôt que de gadgets à la mode : laser médical, radiofréquence, microneedling, HydraFacial. Chaque protocole est ajusté à votre peau, votre pilosité et vos objectifs — jamais standardisé.",
     figures: [
-      { b: "100%", s: "Technologies médicales, aucune méthode expérimentale" },
+      { b: "0", s: "gadget à la mode — uniquement des technologies médicales reconnues" },
       { b: "1 à 1", s: "Chaque protocole est personnalisé, séance après séance" },
     ],
+    founderEyebrow: "Qui vous reçoit",
+    founderTitle: "Najla, fondatrice",
+    founderP1:
+      "Derrière Clinic Global Esthetic, il y a une praticienne qui exerce depuis plus de 25 ans — et qui reçoit elle-même chaque patient·e, du premier bilan au suivi des résultats.",
+    founderP2:
+      "Sa méthode tient en trois habitudes : écouter avant de proposer, dire honnêtement ce qu'un soin peut faire (et ne pas faire), et ajuster chaque protocole à la personne plutôt qu'appliquer une recette.",
+    founderFacts: [
+      "Plus de 25 ans de pratique esthétique",
+      "Vous êtes reçue par la même praticienne à chaque séance",
+      "Bilan initial offert, recommandation sans pression",
+    ],
+    founderPhotoAlt: "Najla, fondatrice de Clinic Global Esthetic",
     protocolEyebrow: "Comment ça se passe",
     protocolTitle: "Le protocole, étape par étape",
     protocolText:
@@ -87,26 +100,34 @@ export const fr = {
       {
         num: "04 / SUIVI",
         title: "Ajustement continu",
-        text: "À chaque rendez-vous, le protocole est réévalué pour garantir une progression réelle et durable.",
+        text: "À chaque rendez-vous, le protocole est réévalué et ajusté — pour que chaque séance compte, réellement.",
       },
     ],
     teaserEyebrow: "Nos soins",
-    teaserTitle: "Trois univers, une seule exigence",
+    teaserTitle: "Laser, visage, corps — la même rigueur partout",
     teaserText:
-      "Épilation laser, soins du visage et traitements du corps — des technologies médicales sérieuses et des résultats mesurables.",
+      "Trois familles de soins, un seul standard : des technologies médicales reconnues et des résultats mesurables.",
     teasers: [
       {
         title: "Épilation laser",
-        text: "Toutes zones, femmes & hommes. Tarifs détaillés, explication du protocole et du cycle du poil.",
+        text: "Toutes zones, femmes & hommes. Tarifs transparents zone par zone, protocole expliqué — et le cycle du poil enfin décrypté.",
+        cta: "Voir les tarifs laser",
       },
       {
         title: "Soins du visage",
         text: "HydraFacial, laser CO₂, microneedling, carbon peel, ultrasons, radiofréquence.",
+        cta: "Découvrir les soins visage",
       },
       {
         title: "Traitements du corps",
         text: "Détatouage laser, EMSculpt, pressothérapie.",
+        cta: "Voir les traitements corps",
       },
+    ],
+    teaserAlts: [
+      "Marquage précis du dos avant une séance d'épilation laser",
+      "Soin du visage HydraFacial au cabinet",
+      "Séance d'EMSculpt au cabinet",
     ],
   },
 
@@ -133,7 +154,7 @@ export const fr = {
     ],
     sceneTag: "COUPE DE PEAU — FOLLICULE",
     sceneAria:
-      "Coupe de peau en 3D montrant le follicule pileux selon la phase du cycle sélectionnée",
+      "Schéma d'une coupe de peau montrant le follicule pileux selon la phase du cycle sélectionnée",
   },
 
   laser: {
@@ -149,7 +170,7 @@ export const fr = {
     photoCaption: ["TECHNOLOGIE MÉDICALE — DIODE 810NM", "SÉANCE EN CONDITIONS RÉELLES"],
     statB: "6–8 séances",
     statText:
-      "en moyenne pour un résultat optimal, avec une diminution visible dès la première séance et jusqu'à 80% de réduction constatée dès la 4ᵉ séance selon la zone et le type de peau.",
+      "en moyenne pour un résultat optimal. La diminution est le plus souvent perceptible dès les premières séances, avec jusqu'à 80% de réduction constatée dès la 4ᵉ selon la zone et le type de peau.",
     compareEyebrow: "Pourquoi le laser médical",
     compareTitle: "La seule méthode qui traite la racine",
     compareText:
@@ -274,6 +295,7 @@ export const fr = {
     headText:
       "Des technologies médicales reconnues pour renouveler, purifier et raffermir la peau — sans surpromesse, avec un protocole adapté à chaque type de peau.",
     cta: "Réserver un soin du visage",
+    gridTitle: "Six soins, un objectif : une peau saine",
     soins: [
       {
         title: "HydraFacial",
@@ -282,7 +304,7 @@ export const fr = {
       },
       {
         title: "Laser CO₂",
-        text: "Traitement médical de pointe pour le renouvellement profond de la peau. Stimule une régénération cutanée intense, idéale pour les rides, cicatrices et taches.",
+        text: "Renouvelle la peau en profondeur : le laser CO₂ déclenche une régénération cutanée intense — idéal pour les rides, cicatrices et taches.",
         alt: "Laser CO2",
       },
       {
@@ -302,8 +324,23 @@ export const fr = {
       },
       {
         title: "Radiofréquence",
-        text: "Ondes électromagnétiques qui chauffent les tissus en profondeur, stimulant collagène et élastine. Peau raffermie, contours redéfinis, sans douleur ni récupération.",
+        text: "Ondes électromagnétiques qui chauffent les tissus en profondeur, stimulant collagène et élastine. Peau raffermie, contours redéfinis — un soin confortable, sans éviction sociale.",
         alt: "Radiofréquence",
+      },
+    ],
+    faqTitle: "Avant de choisir",
+    faq: [
+      {
+        q: "Quel soin choisir pour ma peau ?",
+        a: "C'est précisément l'objet de la première consultation gratuite : un bilan de peau, puis une recommandation claire — parfois un seul soin suffit. Sans engagement.",
+      },
+      {
+        q: "Combien de séances prévoir ?",
+        a: "Cela dépend du soin et de l'objectif : certains offrent un effet immédiat (HydraFacial), d'autres agissent en cure de plusieurs séances (microneedling, radiofréquence). Le rythme exact est défini lors du bilan.",
+      },
+      {
+        q: "Y a-t-il des contre-indications ?",
+        a: "Certains soins sont déconseillés pendant la grossesse, sur une peau lésée ou selon les traitements en cours. Chaque protocole commence par un questionnaire et un examen de la peau pour les écarter.",
       },
     ],
   },
@@ -317,6 +354,7 @@ export const fr = {
     headText:
       "Détatouage laser, remodelage musculaire et drainage — des technologies médicales pour des résultats concrets, sans chirurgie.",
     cta: "Réserver un traitement du corps",
+    gridTitle: "Trois traitements ciblés",
     traitements: [
       {
         title: "Détatouage laser",
@@ -325,13 +363,28 @@ export const fr = {
       },
       {
         title: "EMSculpt",
-        text: "Ondes électromagnétiques de haute intensité qui provoquent des contractions musculaires intenses, impossibles à obtenir par un entraînement classique. Renforce, tonifie et réduit les graisses localisées.",
+        text: "Ondes électromagnétiques de haute intensité qui déclenchent des contractions musculaires supramaximales, bien au-delà de l'entraînement volontaire. Renforce et tonifie le muscle ; peut contribuer à réduire les graisses localisées.",
         alt: "EMSculpt",
       },
       {
         title: "Pressothérapie",
-        text: "Stimule la circulation lymphatique et veineuse grâce à des pressions d'air contrôlées. Élimine les toxines, réduit la rétention d'eau et la sensation de jambes lourdes.",
+        text: "Stimule la circulation lymphatique et veineuse grâce à des pressions d'air contrôlées. Favorise le drainage, réduit la rétention d'eau et la sensation de jambes lourdes.",
         alt: "Pressothérapie",
+      },
+    ],
+    faqTitle: "Avant de choisir",
+    faq: [
+      {
+        q: "Le détatouage efface-t-il un tatouage en une séance ?",
+        a: "Non — le laser fragmente les pigments progressivement, sur plusieurs séances espacées de plusieurs semaines. Le nombre dépend de l'encre, de la profondeur et de l'ancienneté du tatouage ; le bilan gratuit permet une estimation honnête.",
+      },
+      {
+        q: "L'EMSculpt remplace-t-il le sport ?",
+        a: "Non, il le complète : les contractions supramaximales travaillent le muscle au-delà de l'entraînement volontaire, mais l'hygiène de vie reste déterminante pour le résultat d'ensemble.",
+      },
+      {
+        q: "À qui s'adresse la pressothérapie ?",
+        a: "Aux jambes lourdes, à la rétention d'eau et à la récupération. C'est une séance douce de 45 minutes ; les contre-indications, notamment vasculaires, sont écartées lors du bilan.",
       },
     ],
     resultEyebrow: "Résultats réels",
@@ -350,13 +403,28 @@ export const fr = {
   booking: {
     metaTitle: "Prendre rendez-vous — Clinic Global Esthetic, Meyrin Genève",
     metaDesc:
-      "Réservez votre créneau chez Clinic Global Esthetic à Meyrin, Genève. Première consultation gratuite — confirmation par e-mail sous 24 h ouvrées.",
-    headTitle: "Réservez votre créneau en ligne",
+      "Réservez en ligne chez Clinic Global Esthetic à Meyrin, Genève : agenda en temps réel avec confirmation immédiate, ou demande par e-mail. Première consultation gratuite.",
+    headTitle: "Prendre rendez-vous",
     headText:
-      "Sélectionnez le motif de votre visite, indiquez vos disponibilités et vos coordonnées — nous vous confirmons le créneau par e-mail sous 24 h ouvrées, sans risque de double réservation.",
+      "Deux façons de réserver : choisissez votre créneau en direct dans l'agenda, ou envoyez-nous une demande écrite si vous préférez être guidée.",
+    paths: {
+      fresha: {
+        tag: "Le plus rapide",
+        title: "Choisissez votre créneau en ligne",
+        text: "Agenda en temps réel : sélectionnez votre soin et votre horaire — confirmation immédiate par e-mail et rappel automatique la veille du rendez-vous.",
+        cta: "Ouvrir l'agenda",
+      },
+      form: {
+        tag: "Demande personnalisée",
+        title: "Ou envoyez-nous votre demande",
+        text: "Vous hésitez entre plusieurs soins, ou préférez décrire votre situation ? Écrivez-nous ci-dessous — réponse personnelle en un jour ouvré.",
+        cta: "Remplir la demande",
+      },
+    },
     step1: "01 — Le motif de votre visite",
     step2: "02 — Vos disponibilités",
     step3: "03 — Vos coordonnées",
+    waitingHint: "Choisissez d'abord un motif ci-dessus — le formulaire s'activera ensuite.",
     freeTag: "GRATUIT",
     motifs: {
       consultation: { label: "Consultation gratuite", desc: "1ère visite, bilan peau · 30 min" },
@@ -391,7 +459,7 @@ export const fr = {
     messagePlaceholder: "Ex. : aisselles + demi-jambes, peau sensible…",
     submit: "Envoyer la demande",
     submitting: "Envoi en cours…",
-    note: "Réponse sous 24 h ouvrées · sans engagement",
+    note: "Réponse en un jour ouvré · sans engagement",
     errors: {
       motif: "Choisissez le motif de votre rendez-vous.",
       name: "Indiquez votre prénom et votre nom.",
@@ -417,12 +485,6 @@ export const fr = {
     mailSubject: "Demande de rendez-vous",
     mapTitle: "Localisation Clinic Global Esthetic, Av. Louis-Casaï 71, 1216 Meyrin",
     contactLabels: { phone: "TÉL", mail: "MAIL", whatsapp: "WHATSAPP" },
-    onlineEyebrow: "Agenda en ligne",
-    onlineTitle: "Réservez votre créneau en direct",
-    onlineText:
-      "Choisissez votre soin et votre horaire dans l'agenda en temps réel : confirmation immédiate par e-mail et rappel automatique la veille de votre rendez-vous.",
-    onlineCta: "Ouvrir l'agenda de réservation",
-    onlineOr: "Vous préférez écrire ? Envoyez-nous une demande ci-dessous — nous confirmons sous 24 h ouvrées.",
     rail: ["Motif", "Disponibilités", "Coordonnées"],
     directTitle: "Vous préférez un contact direct ?",
     directText:
@@ -513,7 +575,7 @@ export const fr = {
       {
         h: "Services tiers",
         p: [
-          "La page de rendez-vous intègre une carte Google Maps, soumise aux conditions de confidentialité de Google. Certaines images du site sont servies par le réseau de diffusion Wix (static.wixstatic.com).",
+          "La page de rendez-vous intègre une carte Google Maps ainsi qu'un lien vers notre agenda de réservation Fresha, soumis aux conditions de confidentialité de leurs éditeurs respectifs.",
           "Ce site n'utilise ni cookies de suivi, ni outil d'analyse d'audience, ni publicité.",
         ],
       },

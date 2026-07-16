@@ -1,16 +1,15 @@
-/** Bandeau défilant des technologies du cabinet. */
+/**
+ * Bandeau des technologies du cabinet — liste statique et lisible
+ * (l'ancien défilement infini gênait la lecture et violait WCAG 2.2.2).
+ */
 export default function TechStrip({ techs }: { techs: readonly string[] }) {
   return (
-    <div className="tech-strip" aria-hidden="true">
-      <div className="tech-track">
-        {[0, 1].map((copy) => (
-          <div className="tech-group" key={copy}>
-            {techs.map((tech) => (
-              <span key={tech}>{tech}</span>
-            ))}
-          </div>
+    <div className="tech-strip">
+      <ul className="tech-list">
+        {techs.map((tech) => (
+          <li key={tech}>{tech}</li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

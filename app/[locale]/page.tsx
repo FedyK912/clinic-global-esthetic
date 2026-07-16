@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ConsultBanner from "@/components/ConsultBanner";
-import CountUp from "@/components/CountUp";
 import GiftBanner from "@/components/GiftBanner";
 import HairCycle from "@/components/HairCycle";
 import HeroVisual from "@/components/HeroVisual";
 import Reveal from "@/components/Reveal";
 import TechStrip from "@/components/TechStrip";
-import TiltCard from "@/components/TiltCard";
 import { getDict, p, type Locale } from "@/lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -25,6 +24,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
   };
 }
+
+const TEASER_IMAGES = [
+  "/images/marquage-dos-homme.jpg",
+  "/images/soin-hydrafacial.jpg",
+  "/images/corps-emsculpt.jpg",
+];
 
 export default async function HomePage({ params }: PageProps) {
   const { locale: rawLocale } = await params;
@@ -56,10 +61,11 @@ export default async function HomePage({ params }: PageProps) {
             </h1>
             <p className="lead">{h.heroLead}</p>
             <div className="hero-cta">
-              <Link href={p(locale, "/rendez-vous")} className="btn btn-laser">
+              <Link href={p(locale, "/rendez-vous")} className="btn btn-laser btn-lg">
                 {t.common.bookSlot}
+                <span className="arrow" aria-hidden="true">→</span>
               </Link>
-              <Link href={p(locale, "/epilation-laser")} className="btn btn-ghost">
+              <Link href={p(locale, "/epilation-laser") + "#tarifs"} className="btn btn-ghost btn-lg">
                 {t.common.seePricing}
               </Link>
             </div>
@@ -70,13 +76,13 @@ export default async function HomePage({ params }: PageProps) {
             <div className="hero-stats">
               {h.stats.map((stat) => (
                 <div className="stat" key={stat.s}>
-                  <CountUp value={stat.b} />
+                  <b>{stat.b}</b>
                   <span>{stat.s}</span>
                 </div>
               ))}
             </div>
           </div>
-          <HeroVisual caption={h.scanCaption} ariaLabel={h.heroSceneAria} />
+          <HeroVisual caption={h.scanCaption} alt={h.heroPhotoAlt} />
         </div>
       </section>
 
@@ -107,8 +113,31 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* ================= FONDATRICE ================= */}
+      <section className="section-alt">
+        <div className="wrap">
+          <Reveal className="founder">
+            <div className="founder-photo" aria-hidden="true">
+              {/* Photo de la fondatrice à ajouter — monogramme en attendant */}
+              <span className="placeholder">N.</span>
+            </div>
+            <div className="founder-body">
+              <div className="eyebrow">{h.founderEyebrow}</div>
+              <h2>{h.founderTitle}</h2>
+              <p>{h.founderP1}</p>
+              <p>{h.founderP2}</p>
+              <div className="founder-facts">
+                {h.founderFacts.map((fact) => (
+                  <span key={fact}>{fact}</span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ================= PROTOCOLE ================= */}
-      <section id="protocole" className="section-alt">
+      <section id="protocole">
         <div className="wrap">
           <Reveal className="section-head">
             <div className="eyebrow">{h.protocolEyebrow}</div>
@@ -128,14 +157,14 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ================= CYCLE DU POIL ================= */}
-      <section>
+      <section className="section-alt">
         <div className="wrap">
           <HairCycle t={t.cycle} />
         </div>
       </section>
 
       {/* ================= TEASER SERVICES ================= */}
-      <section className="section-alt">
+      <section>
         <div className="wrap">
           <Reveal className="section-head">
             <div className="eyebrow">{h.teaserEyebrow}</div>
@@ -144,20 +173,32 @@ export default async function HomePage({ params }: PageProps) {
           </Reveal>
           <Reveal className="teaser-grid" stagger>
             {h.teasers.map((teaser, i) => (
-              <TiltCard key={teaser.title}>
-                <Link href={teaserHrefs[i]} className="teaser-card">
+              <Link key={teaser.title} href={teaserHrefs[i]} className="teaser-card">
+                <div className="img-box">
+                  <Image
+                    src={TEASER_IMAGES[i]}
+                    alt={h.teaserAlts[i]}
+                    width={640}
+                    height={400}
+                    sizes="(max-width: 960px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="body">
                   <h3>{teaser.title}</h3>
                   <p>{teaser.text}</p>
-                  <span className="link">{t.common.discover}</span>
-                </Link>
-              </TiltCard>
+                  <span className="link">
+                    {teaser.cta}
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </Link>
             ))}
           </Reveal>
         </div>
       </section>
 
       {/* ================= CONSULTATION GRATUITE ================= */}
-      <section>
+      <section className="section-alt">
         <div className="wrap">
           <Reveal>
             <ConsultBanner locale={locale} t={t.common} />
@@ -166,7 +207,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ================= CARTE CADEAU ================= */}
-      <section className="section-alt">
+      <section>
         <div className="wrap">
           <Reveal>
             <GiftBanner t={t.gift} />

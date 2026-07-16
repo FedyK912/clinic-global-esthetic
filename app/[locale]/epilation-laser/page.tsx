@@ -5,6 +5,7 @@ import ConsultBanner from "@/components/ConsultBanner";
 import PriceExplorer from "@/components/PriceExplorer";
 import Reveal from "@/components/Reveal";
 import { getDict, p, type Locale } from "@/lib/i18n";
+import { LASER_GALLERY } from "@/lib/services";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -25,13 +26,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
   };
 }
-
-const GALLERY = [
-  "https://static.wixstatic.com/media/aa06a6_6f30bea7bd6541be9a3cc6e8ce3e7a0d~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/299A49AB-A2A7-41C3-BE44-37EA206FFE9E_edi.jpg",
-  "https://static.wixstatic.com/media/aa06a6_34df226f46444ee794ef8ab65f71ba33~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/aa06a6_34df226f46444ee794ef8ab65f71ba33~mv2.jpg",
-  "https://static.wixstatic.com/media/aa06a6_279db4ac2fca420c833a417de866d4ed~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/E1A6F42D-BFEC-4178-A5B5-5950D450B68D.jpg",
-  "https://static.wixstatic.com/media/aa06a6_d5a56618b151417e91ffd56d926cddd7~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/IMG_8586_JPG.jpg",
-];
 
 export default async function EpilationLaserPage({ params }: PageProps) {
   const { locale: rawLocale } = await params;
@@ -76,7 +70,6 @@ export default async function EpilationLaserPage({ params }: PageProps) {
             fill
             sizes="100vw"
             priority
-            className="kenburns"
           />
           <div className="scan-line" aria-hidden="true"></div>
           <div className="photo-caption">
@@ -188,9 +181,15 @@ export default async function EpilationLaserPage({ params }: PageProps) {
             <p>{l.resultsText}</p>
           </Reveal>
           <Reveal className="gallery-grid" stagger>
-            {GALLERY.map((src, i) => (
+            {LASER_GALLERY.map((src, i) => (
               <div className="g-item" key={src}>
-                <Image src={src} alt={l.galleryAlts[i]} width={400} height={400} />
+                <Image
+                  src={src}
+                  alt={l.galleryAlts[i]}
+                  width={600}
+                  height={600}
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                />
               </div>
             ))}
           </Reveal>

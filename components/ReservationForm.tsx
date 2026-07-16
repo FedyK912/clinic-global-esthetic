@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Dict, Locale } from "@/lib/i18n";
 import {
   MOTIF_KEYS,
@@ -40,6 +40,18 @@ export default function ReservationForm({
 
   const today = new Date().toISOString().slice(0, 10);
 
+  // Pré-sélection via l'URL (ex. /rendez-vous?motif=visage&service=HydraFacial)
+  // pour les CTA contextuels des pages de soins.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const m = params.get("motif");
+    if (m && (MOTIF_KEYS as readonly string[]).includes(m)) {
+      setMotif(m as MotifKey);
+      const s = params.get("service");
+      if (s) setService(s);
+    }
+  }, []);
+
   const motifLabelLocal = (key: MotifKey) => t.motifs[key].label;
 
   const serviceOptions =
@@ -60,6 +72,12 @@ export default function ReservationForm({
 
   const errMsg = (key: string) =>
     t.errors[key as keyof typeof t.errors] ?? t.errors.message;
+
+  /** Props d'accessibilité d'un champ : erreur signalée et décrite. */
+  const invalid = (key: string, id: string) =>
+    errors[key]
+      ? { "aria-invalid": true as const, "aria-describedby": `${id}-error` }
+      : {};
 
   const summaryText = () =>
     [
@@ -138,7 +156,7 @@ export default function ReservationForm({
           <div className="rdv-success">
             <div className="eyebrow">{t.sentEyebrow}</div>
             <h2>{t.sentTitle}</h2>
-            <div className="form-status ok" style={{ marginTop: 20 }}>
+            <div className="form-status ok" role="status" style={{ marginTop: 20 }}>
               <p>{t.sentText1}</p>
               <p style={{ marginBottom: 0 }}>
                 {t.sentText2} {email}.
@@ -158,7 +176,7 @@ export default function ReservationForm({
   return (
     <>
       {/* ============ ÉTAPE 01 — MOTIF ============ */}
-      <section className="rdv-flow">
+      <section className="rdv-flow" id="demande">
         <div className="wrap">
           <ol className="rdv-rail">
             {t.rail.map((label, i) => (
@@ -169,6 +187,9 @@ export default function ReservationForm({
             ))}
           </ol>
 
+          <h2 className="booking-step-title" style={{ marginBottom: 20 }}>
+            {t.step1}
+          </h2>
           <div className="rdv-motifs">
             {MOTIF_KEYS.map((key) => (
               <button
@@ -188,10 +209,11 @@ export default function ReservationForm({
             ))}
           </div>
           {errors.motif && !motif && (
-            <p className="field-error" style={{ marginTop: 14, textAlign: "center" }}>
+            <p className="field-error" role="alert" style={{ marginTop: 14, textAlign: "center" }}>
               {errMsg("motif")}
             </p>
           )}
+          {!motif && <p className="waiting-hint">{t.waitingHint}</p>}
         </div>
       </section>
 
@@ -212,6 +234,7 @@ export default function ReservationForm({
                     id="rdv-service"
                     value={service}
                     onChange={(e) => setService(e.target.value)}
+                    {...invalid("service", "rdv-service")}
                   >
                     <option value="">{t.serviceAny}</option>
                     {serviceOptions.map((s) => (
@@ -220,7 +243,9 @@ export default function ReservationForm({
                       </option>
                     ))}
                   </select>
-                  {errors.service && <span className="field-error">{errMsg("service")}</span>}
+                  {errors.service && (
+                    <span className="field-error" id="rdv-service-error">{errMsg("service")}</span>
+                  )}
                 </div>
               )}
               <div className="field">
@@ -231,8 +256,11 @@ export default function ReservationForm({
                   min={today}
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
+                  {...invalid("date", "rdv-date")}
                 />
-                {errors.date && <span className="field-error">{errMsg("date")}</span>}
+                {errors.date && (
+                  <span className="field-error" id="rdv-date-error">{errMsg("date")}</span>
+                )}
               </div>
               <div className="field">
                 <label htmlFor="rdv-slot">{t.slotLabel}</label>
@@ -263,8 +291,11 @@ export default function ReservationForm({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  {...invalid("name", "rdv-name")}
                 />
-                {errors.name && <span className="field-error">{errMsg("name")}</span>}
+                {errors.name && (
+                  <span className="field-error" id="rdv-name-error">{errMsg("name")}</span>
+                )}
               </div>
               <div className="field">
                 <label htmlFor="rdv-email">{t.emailLabel}</label>
@@ -275,8 +306,11 @@ export default function ReservationForm({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  {...invalid("email", "rdv-email")}
                 />
-                {errors.email && <span className="field-error">{errMsg("email")}</span>}
+                {errors.email && (
+                  <span className="field-error" id="rdv-email-error">{errMsg("email")}</span>
+                )}
               </div>
               <div className="field">
                 <label htmlFor="rdv-phone">{t.phoneLabel}</label>
@@ -286,8 +320,11 @@ export default function ReservationForm({
                   autoComplete="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  {...invalid("phone", "rdv-phone")}
                 />
-                {errors.phone && <span className="field-error">{errMsg("phone")}</span>}
+                {errors.phone && (
+                  <span className="field-error" id="rdv-phone-error">{errMsg("phone")}</span>
+                )}
               </div>
               <div className="field">
                 <label htmlFor="rdv-message">{t.messageLabel}</label>
@@ -296,8 +333,11 @@ export default function ReservationForm({
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder={t.messagePlaceholder}
+                  {...invalid("message", "rdv-message")}
                 />
-                {errors.message && <span className="field-error">{errMsg("message")}</span>}
+                {errors.message && (
+                  <span className="field-error" id="rdv-message-error">{errMsg("message")}</span>
+                )}
               </div>
               {/* Honeypot anti-spam — invisible pour les humains */}
               <div className="hp-field" aria-hidden="true">
@@ -314,7 +354,7 @@ export default function ReservationForm({
             </div>
 
             {status === "error" && (
-              <div className="form-status ko" style={{ marginTop: 20 }}>
+              <div className="form-status ko" role="alert" style={{ marginTop: 20 }}>
                 {errorKind === "validation" ? (
                   <p style={{ marginBottom: 0 }}>{t.errorValidation}</p>
                 ) : errorKind === "rate_limited" ? (
@@ -332,7 +372,7 @@ export default function ReservationForm({
                     </p>
                     <p style={{ marginBottom: 0 }}>
                       {t.errorSend2}
-                      <a href="tel:+41783464201">(+41) 078 346 42 01</a>
+                      <a href={`tel:${CONTACT.phone}`}>{CONTACT.phoneDisplay}</a>
                     </p>
                   </>
                 )}
@@ -340,7 +380,7 @@ export default function ReservationForm({
             )}
 
             <div className="rdv-submit">
-              <button type="submit" className="btn btn-laser" disabled={status === "sending"}>
+              <button type="submit" className="btn btn-laser btn-lg" disabled={status === "sending"}>
                 {status === "sending" ? t.submitting : t.submit}
               </button>
               <p className="form-note">{t.note}</p>

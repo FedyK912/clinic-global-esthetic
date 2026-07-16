@@ -12,16 +12,17 @@ export const en: typeof fr = {
     body: "Body treatments",
     booking: "Book online",
     bookCta: "Book an appointment",
+    bookCtaShort: "Book now",
+    callCta: "Call us",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    tagline: "Meyrin · Geneva · 25 years of expertise",
+    tagline: "Meyrin · Geneva · Over 25 years of expertise",
   },
 
   common: {
     ourCare: "Our treatments",
-    discover: "Discover →",
     bookSlot: "Book a slot",
-    seePricing: "Treatments & pricing",
+    seePricing: "Laser pricing",
     perSession: " / session",
     per45: " / 45 min",
     approx1h: "≈ 1 h",
@@ -32,6 +33,7 @@ export const en: typeof fr = {
       "A full assessment of your skin and hair growth, answers to all your questions and a precise quote — in 30 minutes, with no commitment and no pressure.",
     consultCta: "Book my free assessment",
     resultNote: "Individual result observed at the clinic — not contractual.",
+    bookThis: "Book this treatment",
   },
 
   home: {
@@ -40,22 +42,21 @@ export const en: typeof fr = {
     metaDesc:
       "Medical laser hair removal and face & body aesthetic treatments in Meyrin, Geneva. Free first consultation, reply within one business day.",
     heroEyebrow: "Medical laser hair removal · Geneva",
-    heroTitle1: "The precision of a",
+    heroTitle1: "Medical-grade",
     heroTitle2: "",
-    heroTitleEm: "medical",
-    heroTitlePost: " gesture,",
+    heroTitleEm: "precision",
+    heroTitlePost: ",",
     heroTitle3: "designed for your skin.",
     heroLead:
-      "For over 25 years, Clinic Global Esthetic has cared for its patients in Meyrin with serious medical technology, personalised protocols and an honest approach — far from unrealistic promises.",
+      "For over 25 years, Clinic Global Esthetic has cared for its patients in Meyrin with proven medical technology, personalised protocols and an honest approach — far from unrealistic promises.",
     stats: [
-      { b: "25+", s: "YEARS OF EXPERIENCE" },
-      { b: "80%", s: "OBSERVED HAIR REDUCTION" },
-      { b: "6–8", s: "SESSIONS ON AVERAGE" },
-      { b: "1216", s: "MEYRIN, GENEVA" },
+      { b: "25+", s: "years of experience" },
+      { b: "Up to 80%", s: "observed reduction, by area" },
+      { b: "6–8", s: "sessions on average" },
     ],
-    scanCaption: ["810NM DIODE", "SESSION IN PROGRESS"],
-    heroSceneAria:
-      "3D illustration — a medical laser handpiece sweeping the skin with its beam",
+    scanCaption: ["810NM DIODE — AT THE CLINIC", "REAL SESSION"],
+    heroPhotoAlt:
+      "Medical laser hair removal session at the clinic — treating the legs after area marking",
     aboutEyebrow: "Our story",
     aboutTitle: "One clinic, one standard: yours.",
     aboutP1:
@@ -63,9 +64,21 @@ export const en: typeof fr = {
     aboutP2:
       "Based in Meyrin, we chose recognised medical technology over fashionable gadgets: medical laser, radiofrequency, microneedling, HydraFacial. Every protocol is tailored to your skin, your hair and your goals — never standardised.",
     figures: [
-      { b: "100%", s: "Medical technology, no experimental methods" },
+      { b: "0", s: "fads — only recognised medical technology" },
       { b: "1 to 1", s: "Every protocol personalised, session after session" },
     ],
+    founderEyebrow: "Who welcomes you",
+    founderTitle: "Najla, founder",
+    founderP1:
+      "Behind Clinic Global Esthetic is a practitioner with over 25 years of experience — who personally welcomes every patient, from the first assessment to result follow-up.",
+    founderP2:
+      "Her method comes down to three habits: listening before recommending, saying honestly what a treatment can do (and cannot do), and adjusting every protocol to the person rather than applying a recipe.",
+    founderFacts: [
+      "Over 25 years of aesthetic practice",
+      "You see the same practitioner at every session",
+      "Free initial assessment, no-pressure recommendation",
+    ],
+    founderPhotoAlt: "Najla, founder of Clinic Global Esthetic",
     protocolEyebrow: "How it works",
     protocolTitle: "The protocol, step by step",
     protocolText:
@@ -89,26 +102,34 @@ export const en: typeof fr = {
       {
         num: "04 / FOLLOW-UP",
         title: "Continuous adjustment",
-        text: "At every appointment, the protocol is reassessed to guarantee real, lasting progress.",
+        text: "At every appointment, the protocol is reassessed and fine-tuned — so every session truly counts.",
       },
     ],
     teaserEyebrow: "Our treatments",
-    teaserTitle: "Three worlds, one standard",
+    teaserTitle: "Laser, face, body — the same rigour throughout",
     teaserText:
-      "Laser hair removal, facial treatments and body treatments — serious medical technology and measurable results.",
+      "Three families of treatments, one standard: recognised medical technology and measurable results.",
     teasers: [
       {
         title: "Laser hair removal",
-        text: "All areas, women & men. Detailed pricing, protocol explained, hair growth cycle demystified.",
+        text: "All areas, women & men. Transparent area-by-area pricing, the protocol explained — and the hair growth cycle demystified.",
+        cta: "See laser pricing",
       },
       {
         title: "Facial treatments",
         text: "HydraFacial, CO₂ laser, microneedling, carbon peel, ultrasound, radiofrequency.",
+        cta: "Explore facial treatments",
       },
       {
         title: "Body treatments",
         text: "Laser tattoo removal, EMSculpt, pressotherapy.",
+        cta: "See body treatments",
       },
+    ],
+    teaserAlts: [
+      "Precise back marking before a laser hair removal session",
+      "HydraFacial facial treatment at the clinic",
+      "EMSculpt session at the clinic",
     ],
   },
 
@@ -135,7 +156,7 @@ export const en: typeof fr = {
     ],
     sceneTag: "SKIN CROSS-SECTION — FOLLICLE",
     sceneAria:
-      "3D skin cross-section showing the hair follicle in the selected cycle phase",
+      "Diagram of a skin cross-section showing the hair follicle in the selected cycle phase",
   },
 
   laser: {
@@ -151,7 +172,7 @@ export const en: typeof fr = {
     photoCaption: ["MEDICAL TECHNOLOGY — 810NM DIODE", "REAL TREATMENT SESSION"],
     statB: "6–8 sessions",
     statText:
-      "on average for an optimal result, with visible reduction from the very first session and up to 80% reduction observed by the 4th session depending on the area and skin type.",
+      "on average for an optimal result. Reduction is usually noticeable within the first few sessions, with up to 80% observed by the 4th depending on the area and skin type.",
     compareEyebrow: "Why medical laser",
     compareTitle: "The only method that treats the root",
     compareText:
@@ -276,6 +297,7 @@ export const en: typeof fr = {
     headText:
       "Recognised medical technology to renew, purify and firm the skin — no overpromising, with a protocol adapted to every skin type.",
     cta: "Book a facial treatment",
+    gridTitle: "Six treatments, one goal: healthy skin",
     soins: [
       {
         title: "HydraFacial",
@@ -284,7 +306,7 @@ export const en: typeof fr = {
       },
       {
         title: "CO₂ laser",
-        text: "State-of-the-art medical treatment for deep skin renewal. Triggers intense skin regeneration, ideal for wrinkles, scars and dark spots.",
+        text: "Renews the skin in depth: the CO₂ laser triggers intense skin regeneration — ideal for wrinkles, scars and dark spots.",
         alt: "CO2 laser",
       },
       {
@@ -304,8 +326,23 @@ export const en: typeof fr = {
       },
       {
         title: "Radiofrequency",
-        text: "Electromagnetic waves that heat the tissue in depth, stimulating collagen and elastin. Firmer skin, redefined contours, with no pain and no downtime.",
+        text: "Electromagnetic waves that heat the tissue in depth, stimulating collagen and elastin. Firmer skin, redefined contours — a comfortable treatment with no social downtime.",
         alt: "Radiofrequency",
+      },
+    ],
+    faqTitle: "Before you choose",
+    faq: [
+      {
+        q: "Which treatment is right for my skin?",
+        a: "That is exactly what the free first consultation is for: a skin assessment, then a clear recommendation — sometimes a single treatment is enough. No commitment.",
+      },
+      {
+        q: "How many sessions should I plan?",
+        a: "It depends on the treatment and the goal: some deliver an immediate effect (HydraFacial), others work as a course of several sessions (microneedling, radiofrequency). The exact rhythm is set during the assessment.",
+      },
+      {
+        q: "Are there any contraindications?",
+        a: "Some treatments are not recommended during pregnancy, on damaged skin or alongside certain medication. Every protocol starts with a questionnaire and a skin examination to rule them out.",
       },
     ],
   },
@@ -319,6 +356,7 @@ export const en: typeof fr = {
     headText:
       "Laser tattoo removal, muscle sculpting and lymphatic drainage — medical technology for tangible results, without surgery.",
     cta: "Book a body treatment",
+    gridTitle: "Three targeted treatments",
     traitements: [
       {
         title: "Laser tattoo removal",
@@ -327,13 +365,28 @@ export const en: typeof fr = {
       },
       {
         title: "EMSculpt",
-        text: "High-intensity electromagnetic waves that trigger intense muscle contractions impossible to achieve through regular training. Strengthens, tones and reduces localised fat.",
+        text: "High-intensity electromagnetic waves that trigger supramaximal muscle contractions, far beyond voluntary training. Strengthens and tones the muscle; can help reduce localised fat.",
         alt: "EMSculpt",
       },
       {
         title: "Pressotherapy",
-        text: "Stimulates lymphatic and venous circulation through controlled air pressure. Eliminates toxins, reduces water retention and the feeling of heavy legs.",
+        text: "Stimulates lymphatic and venous circulation through controlled air pressure. Supports drainage, reduces water retention and that heavy-legs feeling.",
         alt: "Pressotherapy",
+      },
+    ],
+    faqTitle: "Before you choose",
+    faq: [
+      {
+        q: "Does tattoo removal work in a single session?",
+        a: "No — the laser fragments the pigments progressively, over several sessions spaced weeks apart. The number depends on the ink, depth and age of the tattoo; the free assessment gives you an honest estimate.",
+      },
+      {
+        q: "Does EMSculpt replace exercise?",
+        a: "No, it complements it: supramaximal contractions work the muscle beyond voluntary training, but lifestyle remains decisive for the overall result.",
+      },
+      {
+        q: "Who is pressotherapy for?",
+        a: "Heavy legs, water retention and recovery. It is a gentle 45-minute session; contraindications — vascular ones in particular — are ruled out during the assessment.",
       },
     ],
     resultEyebrow: "Real results",
@@ -352,13 +405,28 @@ export const en: typeof fr = {
   booking: {
     metaTitle: "Book an appointment — Clinic Global Esthetic, Meyrin Geneva",
     metaDesc:
-      "Book your slot at Clinic Global Esthetic in Meyrin, Geneva. Free first consultation — confirmation by e-mail within one business day.",
-    headTitle: "Book your slot online",
+      "Book online at Clinic Global Esthetic in Meyrin, Geneva: real-time calendar with instant confirmation, or an e-mail request. Free first consultation.",
+    headTitle: "Book an appointment",
     headText:
-      "Select the reason for your visit, tell us your availability and contact details — we confirm your slot by e-mail within one business day, with no risk of double booking.",
+      "Two ways to book: pick your slot directly in the calendar, or send us a written request if you would rather be guided.",
+    paths: {
+      fresha: {
+        tag: "Fastest",
+        title: "Pick your slot online",
+        text: "Real-time calendar: choose your treatment and time — instant e-mail confirmation and an automatic reminder the day before your appointment.",
+        cta: "Open the calendar",
+      },
+      form: {
+        tag: "Personalised request",
+        title: "Or send us your request",
+        text: "Hesitating between treatments, or prefer to describe your situation? Write to us below — personal reply within one business day.",
+        cta: "Fill in the request",
+      },
+    },
     step1: "01 — Reason for your visit",
     step2: "02 — Your availability",
     step3: "03 — Your contact details",
+    waitingHint: "First choose a reason above — the form will then activate.",
     freeTag: "FREE",
     motifs: {
       consultation: { label: "Free consultation", desc: "1st visit, skin assessment · 30 min" },
@@ -412,19 +480,13 @@ export const en: typeof fr = {
     errorSendOr: " or via ",
     errorSend2: "Or call us: ",
     sentEyebrow: "Request sent",
-    sentTitle: "Thank you — we have it.",
+    sentTitle: "Thank you — request received.",
     sentText1: "Your request has been sent to the clinic. We will confirm your slot by e-mail or phone as soon as possible.",
     sentText2: "A confirmation receipt has just been sent to",
     whatsappIntro: "Hello, I would like an appointment for:",
     mailSubject: "Appointment request",
     mapTitle: "Clinic Global Esthetic location, Av. Louis-Casaï 71, 1216 Meyrin",
     contactLabels: { phone: "PHONE", mail: "EMAIL", whatsapp: "WHATSAPP" },
-    onlineEyebrow: "Online calendar",
-    onlineTitle: "Book your slot instantly",
-    onlineText:
-      "Pick your treatment and time in the real-time calendar: instant e-mail confirmation and an automatic reminder the day before your appointment.",
-    onlineCta: "Open the booking calendar",
-    onlineOr: "Prefer to write? Send us a request below — we confirm within one business day.",
     rail: ["Reason", "Availability", "Your details"],
     directTitle: "Prefer to reach us directly?",
     directText:
@@ -515,7 +577,7 @@ export const en: typeof fr = {
       {
         h: "Third-party services",
         p: [
-          "The booking page embeds a Google Map, subject to Google's privacy terms. Some images on this site are served by the Wix content delivery network (static.wixstatic.com).",
+          "The booking page embeds a Google Map and links to our Fresha booking calendar, each subject to its publisher's privacy terms.",
           "This site uses no tracking cookies, no analytics and no advertising.",
         ],
       },

@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { p, type Dict, type Locale } from "@/lib/i18n";
 import { CONTACT } from "@/lib/site";
 
@@ -14,10 +11,7 @@ export default function Footer({
   t: Dict["footer"];
   nav: Dict["nav"];
 }) {
-  const [year, setYear] = useState("");
-  useEffect(() => {
-    setYear(String(new Date().getFullYear()));
-  }, []);
+  const year = new Date().getFullYear();
 
   return (
     <footer>
@@ -54,7 +48,7 @@ export default function Footer({
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© {year} {t.rights}</span>
+          <span suppressHydrationWarning>© {year} {t.rights}</span>
           <span className="footer-legal">
             <Link href={p(locale, "/mentions-legales")}>{t.legalNotice}</Link>
             {" · "}
