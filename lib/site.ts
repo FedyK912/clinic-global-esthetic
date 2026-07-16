@@ -5,10 +5,11 @@ export const SITE_NAME = "Clinic Global Esthetic";
 
 /**
  * Page de réservation Fresha de la clinique (agenda temps réel, confirmation
- * immédiate, rappels automatiques). Laisser vide tant que le compte n'est pas
- * créé : le site n'affiche alors que le formulaire de demande par e-mail.
+ * immédiate, rappels automatiques). Vider cette constante pour masquer le
+ * bouton et ne garder que le formulaire de demande par e-mail.
  */
-export const BOOKING_EXTERNAL_URL = "";
+export const BOOKING_EXTERNAL_URL =
+  "https://www.fresha.com/book-now/clinic-global-esthetic-bbj1zglk/all-offer";
 
 export const CONTACT = {
   phone: "+41783464201",
