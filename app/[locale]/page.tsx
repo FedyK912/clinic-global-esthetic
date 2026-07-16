@@ -118,9 +118,14 @@ export default async function HomePage({ params }: PageProps) {
       <section className="section-alt">
         <div className="wrap">
           <Reveal className="founder">
-            <div className="founder-photo" aria-hidden="true">
-              {/* Photo de la fondatrice à ajouter (monogramme en attendant) */}
-              <span className="placeholder">N.</span>
+            <div className="founder-photo">
+              <Image
+                src="/images/fondatrice-najla.jpg"
+                alt={h.founderPhotoAlt}
+                width={832}
+                height={1024}
+                sizes="(max-width: 960px) 320px, 40vw"
+              />
             </div>
             <div className="founder-body">
               <div className="eyebrow">{h.founderEyebrow}</div>

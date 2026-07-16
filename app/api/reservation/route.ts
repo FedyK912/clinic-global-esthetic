@@ -1,11 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import {
-  motifLabel,
-  timeslotLabel,
-  validateReservation,
-  type ReservationPayload,
-} from "@/lib/reservation";
+import { buildAckEmail, buildEmail } from "@/lib/email";
+import { motifLabel, validateReservation, type ReservationPayload } from "@/lib/reservation";
 import { CONTACT } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -42,59 +38,6 @@ function rateLimited(ip: string): boolean {
   recent.push(now);
   hits.set(ip, recent);
   return false;
-}
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function formatDateFr(iso: string): string {
-  const d = new Date(`${iso}T12:00:00`);
-  return d.toLocaleDateString("fr-CH", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
-
-function buildEmail(data: ReservationPayload) {
-  const rows: [string, string][] = [
-    ["Motif", motifLabel(data.motif)],
-    ["Soin souhaité", data.service?.trim() || "—"],
-    ["Nom", data.name.trim()],
-    ["E-mail", data.email.trim()],
-    ["Téléphone", data.phone?.trim() || "—"],
-    ["Date souhaitée", data.date ? formatDateFr(data.date) : "—"],
-    ["Créneau souhaité", data.timeslot ? timeslotLabel(data.timeslot) : "—"],
-    ["Message", data.message?.trim() || "—"],
-  ];
-
-  const text = rows.map(([k, v]) => `${k} : ${v}`).join("\n");
-
-  const html = `
-  <div style="font-family:Georgia,serif; color:#2E2A25; max-width:560px;">
-    <p style="font-family:monospace; font-size:12px; letter-spacing:2px; color:#8C6E3F; text-transform:uppercase; margin:0 0 6px;">Clinic Global Esthetic · Demande de rendez-vous</p>
-    <div style="height:2px; background:#AD8A55; width:48px; margin-bottom:18px;"></div>
-    <table style="border-collapse:collapse; width:100%; font-family:Arial,sans-serif; font-size:14px;">
-      ${rows
-        .map(
-          ([k, v]) => `<tr>
-        <td style="padding:9px 14px 9px 0; color:#726A5F; white-space:nowrap; vertical-align:top; border-bottom:1px solid #E6DECF;">${k}</td>
-        <td style="padding:9px 0; border-bottom:1px solid #E6DECF;">${escapeHtml(v).replace(/\n/g, "<br>")}</td>
-      </tr>`,
-        )
-        .join("")}
-    </table>
-    <p style="font-family:Arial,sans-serif; font-size:12px; color:#A79C8D; margin-top:18px;">Demande envoyée depuis le formulaire du site.</p>
-  </div>`;
-
-  return { text, html };
 }
 
 export async function POST(request: Request) {
@@ -155,33 +98,14 @@ export async function POST(request: Request) {
 
   // Accusé de réception au client, dans sa langue, sans faire échouer la
   // demande si indisponible.
-  const ackLocale = payload.locale === "en" ? "en" : "fr";
-  const MOTIF_EN: Record<string, string> = {
-    consultation: "Free consultation",
-    laser: "Laser hair removal",
-    visage: "Facial treatment",
-    corps: "Body treatment",
-  };
-  const ack =
-    ackLocale === "en"
-      ? {
-          subject: "Your appointment request | Clinic Global Esthetic",
-          text: `Hello ${payload.name.trim()},\n\nWe have received your appointment request (${
-            MOTIF_EN[payload.motif] ?? payload.motif
-          }). We will get back to you as soon as possible to confirm your slot.\n\nThis request is not yet a confirmed appointment.\n\nClinic Global Esthetic\nAv. Louis-Casaï 71, 1216 Meyrin\n(+41) 078 346 42 01`,
-        }
-      : {
-          subject: "Votre demande de rendez-vous | Clinic Global Esthetic",
-          text: `Bonjour ${payload.name.trim()},\n\nNous avons bien reçu votre demande de rendez-vous (${motifLabel(
-            payload.motif,
-          )}). Nous revenons vers vous dans les meilleurs délais pour confirmer le créneau.\n\nCette demande ne vaut pas confirmation.\n\nClinic Global Esthetic\nAv. Louis-Casaï 71, 1216 Meyrin\n(+41) 078 346 42 01`,
-        };
+  const ack = buildAckEmail(payload);
   try {
     await transporter.sendMail({
       from: `"Clinic Global Esthetic" <${from}>`,
       to: payload.email.trim(),
       subject: ack.subject,
       text: ack.text,
+      html: ack.html,
     });
   } catch {
     // l'accusé de réception est optionnel
