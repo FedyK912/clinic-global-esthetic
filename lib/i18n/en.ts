@@ -30,7 +30,7 @@ export const en: typeof fr = {
     consultText:
       "A full assessment of your skin and hair growth, answers to all your questions and a precise quote, all in 30 minutes, with no commitment and no pressure.",
     consultCta: "Book my free assessment",
-    resultNote: "Individual result observed at the clinic, not contractual.",
+    resultNote: "Individual result observed at the clinic on one of our clients.",
     bookThis: "Book this treatment",
   },
 

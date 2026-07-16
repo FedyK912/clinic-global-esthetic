@@ -28,7 +28,7 @@ export const fr = {
     consultText:
       "Bilan de votre peau et de votre pilosité, réponses à toutes vos questions et devis précis, le tout en 30 minutes, sans engagement ni pression.",
     consultCta: "Réserver mon bilan gratuit",
-    resultNote: "Résultat individuel constaté au cabinet, non contractuel.",
+    resultNote: "Résultat individuel constaté au cabinet pour une cliente.",
     bookThis: "Réserver ce soin",
   },
 
