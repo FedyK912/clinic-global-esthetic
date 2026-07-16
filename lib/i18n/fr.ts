@@ -443,6 +443,12 @@ export const fr = {
       "Cabinet d'épilation laser médicale et de soins esthétiques du visage et du corps, à Meyrin, Genève.",
     navTitle: "Navigation",
     contactTitle: "Contact",
+    hoursTitle: "Horaires",
+    hours: [
+      "Lundi – vendredi : 9h – 19h",
+      "Samedi : 9h – 13h",
+      "Dimanche : fermé",
+    ],
     rights: "Clinic Global Esthetic — Meyrin, Genève",
     legalNotice: "Mentions légales",
     privacy: "Confidentialité",

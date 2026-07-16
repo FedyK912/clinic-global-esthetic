@@ -46,6 +46,12 @@ export default function Footer({
               Av. Louis-Casaï 71, 1216 Meyrin
             </a>
           </div>
+          <div>
+            <h4>{t.hoursTitle}</h4>
+            {t.hours.map((line) => (
+              <p key={line} className="footer-hours">{line}</p>
+            ))}
+          </div>
         </div>
         <div className="footer-bottom">
           <span>© {year} {t.rights}</span>

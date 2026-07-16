@@ -42,6 +42,12 @@ const ICONS = {
       <path d="m22 7-10 5L2 7" />
     </svg>
   ),
+  clock: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
+    </svg>
+  ),
 };
 
 export default async function RendezVousPage({ params }: PageProps) {
@@ -131,6 +137,17 @@ export default async function RendezVousPage({ params }: PageProps) {
                     <span className="val">{CONTACT.email}</span>
                   </span>
                 </a>
+                <div className="contact-tile" style={{ cursor: "default" }}>
+                  {ICONS.clock}
+                  <span>
+                    <span className="lbl">{t.footer.hoursTitle}</span>
+                    {t.footer.hours.map((line) => (
+                      <span key={line} className="val" style={{ display: "block", fontWeight: 500, fontSize: 13.5 }}>
+                        {line}
+                      </span>
+                    ))}
+                  </span>
+                </div>
               </div>
             </div>
             <div className="map-box">

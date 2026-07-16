@@ -445,6 +445,12 @@ export const en: typeof fr = {
       "Medical laser hair removal and face & body aesthetic treatments clinic in Meyrin, Geneva.",
     navTitle: "Navigation",
     contactTitle: "Contact",
+    hoursTitle: "Opening hours",
+    hours: [
+      "Monday – Friday: 9am – 7pm",
+      "Saturday: 9am – 1pm",
+      "Sunday: closed",
+    ],
     rights: "Clinic Global Esthetic — Meyrin, Geneva",
     legalNotice: "Legal notice",
     privacy: "Privacy",

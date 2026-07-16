@@ -86,6 +86,20 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       addressLocality: CONTACT.address.city,
       addressCountry: CONTACT.address.country,
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "19:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "13:00",
+      },
+    ],
     sameAs: ["https://clinicglobalesthetic.wixsite.com/clinic-global-esthet"],
   };
 

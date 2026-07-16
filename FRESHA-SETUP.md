@@ -22,8 +22,13 @@ pour gérer les rendez-vous depuis le téléphone.
 
 ## Étape 2 — Horaires d'ouverture (2 min)
 
-Paramètres → Horaires d'ouverture → saisir les jours/heures réels du cabinet
-(lun–sam d'après la grille actuelle).
+Paramètres → Horaires d'ouverture :
+
+| Jour | Horaires |
+|---|---|
+| Lundi → Vendredi | 9h00 – 19h00 |
+| Samedi | 9h00 – 13h00 |
+| Dimanche | Fermé |
 
 ## Étape 3 — Créer la carte de soins (15 min — copier ce tableau)
 
