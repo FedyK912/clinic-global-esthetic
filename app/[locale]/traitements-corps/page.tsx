@@ -72,13 +72,9 @@ export default async function TraitementsCorpsPage({ params }: PageProps) {
                   <div className="price-tag">
                     <span>
                       {locale === "fr" ? BODY_SERVICES[i].priceFr : BODY_SERVICES[i].priceEn}
-                      <small>
-                        {BODY_SERVICES[i].perSession ? t.common.perSession : t.common.per45}
-                      </small>
+                      <small>{t.common.perSession}</small>
                     </span>
-                    <span className="duration">
-                      {BODY_SERVICES[i].perSession ? t.common.approx1h : t.common.dur45}
-                    </span>
+                    <span className="duration">{BODY_SERVICES[i].dur}</span>
                   </div>
                   <Link className="card-cta" href={bookHref(t.booking.servicesCorps[i])}>
                     {t.common.bookThis}

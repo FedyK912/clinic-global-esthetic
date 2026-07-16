@@ -24,9 +24,7 @@ export const en: typeof fr = {
     bookSlot: "Book a slot",
     seePricing: "Laser pricing",
     perSession: " / session",
-    per45: " / 45 min",
     approx1h: "≈ 1 h",
-    dur45: "45 min",
     freeBadge: "Free first consultation: skin assessment & quote",
     consultTitle: "Free first consultation",
     consultText:
@@ -405,7 +403,7 @@ export const en: typeof fr = {
       },
       {
         q: "Who is pressotherapy for?",
-        a: "Heavy legs, water retention and recovery. It is a gentle 45-minute session; contraindications, vascular ones in particular, are ruled out during the assessment.",
+        a: "Heavy legs, water retention and recovery. It is a gentle 20-minute session; contraindications, vascular ones in particular, are ruled out during the assessment.",
       },
     ],
     resultEyebrow: "Real results",
@@ -451,7 +449,7 @@ export const en: typeof fr = {
       consultation: { label: "Free consultation", desc: "1st visit, skin assessment · 30 min" },
       laser: { label: "Laser hair removal", desc: "All areas · ≈ 1 h" },
       visage: { label: "Facial treatment", desc: "HydraFacial, CO2, etc. · ≈ 1 h" },
-      corps: { label: "Body treatment", desc: "Tattoo removal, EMSculpt... · ≈ 1 h" },
+      corps: { label: "Body treatment", desc: "Tattoo removal, EMSculpt... · 15 to 30 min" },
     },
     serviceLabel: "Preferred treatment (optional)",
     serviceAny: "I don't know yet",

@@ -22,9 +22,7 @@ export const fr = {
     bookSlot: "Réserver un créneau",
     seePricing: "Tarifs épilation laser",
     perSession: " / séance",
-    per45: " / 45 min",
     approx1h: "≈ 1 h",
-    dur45: "45 min",
     freeBadge: "1ʳᵉ consultation gratuite · bilan de peau & devis",
     consultTitle: "Première consultation gratuite",
     consultText:
@@ -403,7 +401,7 @@ export const fr = {
       },
       {
         q: "À qui s'adresse la pressothérapie ?",
-        a: "Aux jambes lourdes, à la rétention d'eau et à la récupération. C'est une séance douce de 45 minutes ; les contre-indications, notamment vasculaires, sont écartées lors du bilan.",
+        a: "Aux jambes lourdes, à la rétention d'eau et à la récupération. C'est une séance douce de 20 minutes ; les contre-indications, notamment vasculaires, sont écartées lors du bilan.",
       },
     ],
     resultEyebrow: "Résultats réels",
@@ -449,7 +447,7 @@ export const fr = {
       consultation: { label: "Consultation gratuite", desc: "1ère visite, bilan peau · 30 min" },
       laser: { label: "Épilation laser", desc: "Toutes zones · ≈ 1 h" },
       visage: { label: "Soin du visage", desc: "HydraFacial, CO2, etc. · ≈ 1 h" },
-      corps: { label: "Traitement du corps", desc: "Détatouage, EMSculpt... · ≈ 1 h" },
+      corps: { label: "Traitement du corps", desc: "Détatouage, EMSculpt... · 15 à 30 min" },
     },
     serviceLabel: "Soin souhaité (optionnel)",
     serviceAny: "Je ne sais pas encore",

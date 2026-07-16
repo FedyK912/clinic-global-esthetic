@@ -50,9 +50,9 @@ Paramètres → Horaires d'ouverture :
 ### Traitements du corps
 | Soin | Durée | Prix |
 |---|---|---|
-| Détatouage laser | 1 h | dès 170 CHF (prix variable) |
-| EMSculpt | 1 h | 150 CHF |
-| Pressothérapie | 45 min | 120 CHF |
+| Détatouage laser | 15 min | dès 170 CHF (prix variable) |
+| EMSculpt | 30 min | 150 CHF |
+| Pressothérapie | 20 min | 120 CHF |
 
 ### Épilation laser : zones les plus demandées
 *(commencer par celles-ci ; les autres zones du tarif complet peuvent être

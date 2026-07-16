@@ -20,21 +20,21 @@ export const BODY_SERVICES = [
     img: "/images/corps-detatouage.jpg",
     priceFr: "Dès 170.-",
     priceEn: "From 170.-",
-    perSession: true,
+    dur: "15 min",
   },
   {
     key: "emsculpt",
     img: "/images/corps-emsculpt.jpg",
     priceFr: "150.-",
     priceEn: "150.-",
-    perSession: true,
+    dur: "30 min",
   },
   {
     key: "pressotherapie",
     img: "/images/corps-pressotherapie.jpg",
     priceFr: "120.-",
     priceEn: "120.-",
-    perSession: false,
+    dur: "20 min",
   },
 ] as const;
 
