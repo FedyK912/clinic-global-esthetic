@@ -101,7 +101,9 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         closes: "13:00",
       },
     ],
-    sameAs: ["https://clinicglobalesthetic.wixsite.com/clinic-global-esthet"],
+    sameAs: [
+      "https://www.fresha.com/a/clinic-global-esthetic-meyrin-avenue-louis-casai-71-fm6ut1vd",
+    ],
   };
 
   return (
