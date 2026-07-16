@@ -3,7 +3,7 @@ import GiftBanner from "@/components/GiftBanner";
 import ReservationForm from "@/components/ReservationForm";
 import Reveal from "@/components/Reveal";
 import { getDict, p, type Locale } from "@/lib/i18n";
-import { CONTACT } from "@/lib/site";
+import { BOOKING_EXTERNAL_URL, CONTACT } from "@/lib/site";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -63,6 +63,34 @@ export default async function RendezVousPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* Agenda externe (Fresha) — affiché dès que BOOKING_EXTERNAL_URL est défini */}
+      {BOOKING_EXTERNAL_URL && (
+        <section className="section-alt" style={{ padding: "64px 0" }}>
+          <div className="wrap">
+            <div className="consult-banner">
+              <div>
+                <div className="eyebrow" style={{ color: "#D9BC8C" }}>
+                  {b.onlineEyebrow}
+                </div>
+                <h3>{b.onlineTitle}</h3>
+                <p>{b.onlineText}</p>
+              </div>
+              <a
+                href={BOOKING_EXTERNAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-laser"
+              >
+                {b.onlineCta}
+              </a>
+            </div>
+            <p className="form-note" style={{ marginTop: 18, textAlign: "center" }}>
+              {b.onlineOr}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Parcours de réservation en étapes (composant client) */}
       <ReservationForm locale={locale} t={b} />
