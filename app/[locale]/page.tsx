@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import CabinetTour from "@/components/CabinetTour";
 import ConsultBanner from "@/components/ConsultBanner";
 import GiftBanner from "@/components/GiftBanner";
 import HairCycle from "@/components/HairCycle";
@@ -118,7 +119,7 @@ export default async function HomePage({ params }: PageProps) {
         <div className="wrap">
           <Reveal className="founder">
             <div className="founder-photo" aria-hidden="true">
-              {/* Photo de la fondatrice à ajouter — monogramme en attendant */}
+              {/* Photo de la fondatrice à ajouter (monogramme en attendant) */}
               <span className="placeholder">N.</span>
             </div>
             <div className="founder-body">
@@ -133,6 +134,18 @@ export default async function HomePage({ params }: PageProps) {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ================= LE CABINET ================= */}
+      <section className="cabinet-section">
+        <div className="wrap">
+          <Reveal className="section-head">
+            <div className="eyebrow">{h.cabinet.eyebrow}</div>
+            <h2>{h.cabinet.title}</h2>
+            <p>{h.cabinet.text}</p>
+          </Reveal>
+          <CabinetTour t={h.cabinet} />
         </div>
       </section>
 

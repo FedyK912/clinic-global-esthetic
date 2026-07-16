@@ -95,7 +95,7 @@ export default function ReservationForm({
 
   const mailtoFallback = () =>
     `mailto:${CLINIC_EMAIL}?subject=${encodeURIComponent(
-      `${t.mailSubject} — ${motif ? motifLabelLocal(motif) : ""}`,
+      `${t.mailSubject} · ${motif ? motifLabelLocal(motif) : ""}`,
     )}&body=${encodeURIComponent(`${summaryText()}\n`)}`;
 
   const whatsappFallback = () =>
@@ -175,7 +175,7 @@ export default function ReservationForm({
 
   return (
     <>
-      {/* ============ ÉTAPE 01 — MOTIF ============ */}
+      {/* ============ ÉTAPE 01 : MOTIF ============ */}
       <section className="rdv-flow" id="demande">
         <div className="wrap">
           <ol className="rdv-rail">
@@ -217,7 +217,7 @@ export default function ReservationForm({
         </div>
       </section>
 
-      {/* ============ ÉTAPES 02 & 03 — FORMULAIRE ============ */}
+      {/* ============ ÉTAPES 02 & 03 : FORMULAIRE ============ */}
       <section
         ref={formSection}
         className={`section-alt rdv-form-section${motif ? "" : " waiting"}`}
@@ -339,7 +339,7 @@ export default function ReservationForm({
                   <span className="field-error" id="rdv-message-error">{errMsg("message")}</span>
                 )}
               </div>
-              {/* Honeypot anti-spam — invisible pour les humains */}
+              {/* Honeypot anti-spam, invisible pour les humains */}
               <div className="hp-field" aria-hidden="true">
                 <label htmlFor="rdv-website">Site web</label>
                 <input

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import GiftBanner from "@/components/GiftBanner";
 import ReservationForm from "@/components/ReservationForm";
 import Reveal from "@/components/Reveal";
@@ -148,13 +149,25 @@ export default async function RendezVousPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
-            <div className="map-box">
+            <div>
+              <figure className="landmark">
+                <Image
+                  src="/images/cabinet-immeuble.jpg"
+                  alt={b.landmarkAlt}
+                  width={1254}
+                  height={784}
+                  sizes="(max-width: 960px) 100vw, 50vw"
+                />
+                <figcaption>{b.landmarkCaption}</figcaption>
+              </figure>
+              <div className="map-box">
               <iframe
                 src="https://www.google.com/maps?q=Av.+Louis-Casa%C3%AF+71,+1216+Meyrin&output=embed"
                 title={b.mapTitle}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+              </div>
             </div>
           </Reveal>
         </div>

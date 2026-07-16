@@ -1,7 +1,7 @@
 /**
  * Données structurelles des soins (image, prix, durée).
  * L'ordre de chaque tableau est ALIGNÉ sur les tableaux de textes
- * correspondants de lib/i18n (face.soins / body.traitements) — les clés
+ * correspondants de lib/i18n (face.soins / body.traitements) ; les clés
  * `key` servent de garde-fou visuel lors d'une réorganisation.
  */
 

@@ -1,5 +1,5 @@
 /**
- * Bandeau des technologies du cabinet — défilement continu et doux.
+ * Bandeau des technologies du cabinet : défilement continu et doux.
  * En pause au survol, désactivé (liste statique) si l'utilisateur préfère
  * les animations réduites ; une liste cachée reste lisible par les lecteurs
  * d'écran (le ruban animé leur est masqué).

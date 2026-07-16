@@ -79,7 +79,7 @@ function buildEmail(data: ReservationPayload) {
 
   const html = `
   <div style="font-family:Georgia,serif; color:#2E2A25; max-width:560px;">
-    <p style="font-family:monospace; font-size:12px; letter-spacing:2px; color:#8C6E3F; text-transform:uppercase; margin:0 0 6px;">Clinic Global Esthetic — Demande de rendez-vous</p>
+    <p style="font-family:monospace; font-size:12px; letter-spacing:2px; color:#8C6E3F; text-transform:uppercase; margin:0 0 6px;">Clinic Global Esthetic · Demande de rendez-vous</p>
     <div style="height:2px; background:#AD8A55; width:48px; margin-bottom:18px;"></div>
     <table style="border-collapse:collapse; width:100%; font-family:Arial,sans-serif; font-size:14px;">
       ${rows
@@ -125,7 +125,7 @@ export async function POST(request: Request) {
 
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_SECURE } = process.env;
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    // SMTP non configuré (voir .env.example) — le client bascule sur le repli mailto.
+    // SMTP non configuré (voir .env.example) : le client bascule sur le repli mailto.
     return NextResponse.json({ ok: false, error: "email_not_configured" }, { status: 501 });
   }
 
@@ -144,7 +144,7 @@ export async function POST(request: Request) {
       from: `"Site Clinic Global Esthetic" <${from}>`,
       to: CLINIC_EMAIL,
       replyTo: payload.email.trim(),
-      subject: `Demande de rendez-vous — ${motifLabel(payload.motif)} — ${payload.name.trim()}`,
+      subject: `Demande de rendez-vous · ${motifLabel(payload.motif)} · ${payload.name.trim()}`,
       text,
       html,
     });
@@ -153,7 +153,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
   }
 
-  // Accusé de réception au client, dans sa langue — sans faire échouer la
+  // Accusé de réception au client, dans sa langue, sans faire échouer la
   // demande si indisponible.
   const ackLocale = payload.locale === "en" ? "en" : "fr";
   const MOTIF_EN: Record<string, string> = {
@@ -165,13 +165,13 @@ export async function POST(request: Request) {
   const ack =
     ackLocale === "en"
       ? {
-          subject: "Your appointment request — Clinic Global Esthetic",
+          subject: "Your appointment request | Clinic Global Esthetic",
           text: `Hello ${payload.name.trim()},\n\nWe have received your appointment request (${
             MOTIF_EN[payload.motif] ?? payload.motif
           }). We will get back to you as soon as possible to confirm your slot.\n\nThis request is not yet a confirmed appointment.\n\nClinic Global Esthetic\nAv. Louis-Casaï 71, 1216 Meyrin\n(+41) 078 346 42 01`,
         }
       : {
-          subject: "Votre demande de rendez-vous — Clinic Global Esthetic",
+          subject: "Votre demande de rendez-vous | Clinic Global Esthetic",
           text: `Bonjour ${payload.name.trim()},\n\nNous avons bien reçu votre demande de rendez-vous (${motifLabel(
             payload.motif,
           )}). Nous revenons vers vous dans les meilleurs délais pour confirmer le créneau.\n\nCette demande ne vaut pas confirmation.\n\nClinic Global Esthetic\nAv. Louis-Casaï 71, 1216 Meyrin\n(+41) 078 346 42 01`,

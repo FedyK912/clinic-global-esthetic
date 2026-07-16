@@ -3,7 +3,7 @@ import { getDict, type Locale } from "@/lib/i18n";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Clinic Global Esthetic — Meyrin, Genève / Geneva";
+export const alt = "Clinic Global Esthetic · Meyrin, Genève / Geneva";
 
 export default async function OpengraphImage({
   params,
@@ -16,8 +16,8 @@ export default async function OpengraphImage({
 
   const subtitle =
     locale === "fr"
-      ? "Soins du visage & du corps — Meyrin, Genève · Depuis 25 ans"
-      : "Face & body treatments — Meyrin, Geneva · 25 years of expertise";
+      ? "Soins du visage & du corps · Meyrin, Genève · Depuis 25 ans"
+      : "Face & body treatments · Meyrin, Geneva · 25 years of expertise";
 
   return new ImageResponse(
     (

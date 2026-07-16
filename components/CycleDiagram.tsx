@@ -1,5 +1,5 @@
 /**
- * Coupe de peau schématique — remplace l'ancienne scène three.js (≈500 Ko de
+ * Coupe de peau schématique : remplace l'ancienne scène three.js (≈500 Ko de
  * JS) par un SVG inline de quelques Ko. Trois états de follicule superposés,
  * révélés en fondu selon la phase active ; le faisceau laser n'apparaît
  * qu'en phase anagène (la seule où le traitement agit).
@@ -17,7 +17,7 @@ export default function CycleDiagram({ phase }: { phase: number }) {
       <line x1="0" y1="190" x2="400" y2="190" stroke="#DDC3A4" strokeWidth="1" strokeDasharray="5 7" />
       <line x1="0" y1="320" x2="400" y2="320" stroke="#E4D2B9" strokeWidth="1" strokeDasharray="5 7" />
 
-      {/* ---- Phase 0 : anagène — follicule profond, faisceau actif ---- */}
+      {/* ---- Phase 0 : anagène, follicule profond, faisceau actif ---- */}
       <g className="follicle" style={on(0)}>
         <path d="M186 296 Q184 110 193 42" stroke="#4A3A2C" strokeWidth="7" strokeLinecap="round" fill="none" />
         <path d="M170 250 Q168 300 186 308 Q206 300 202 250 Q200 200 186 200 Q172 200 170 250 Z" fill="#E2C4A4" stroke="#C9A583" strokeWidth="2" />
@@ -31,7 +31,7 @@ export default function CycleDiagram({ phase }: { phase: number }) {
         </g>
       </g>
 
-      {/* ---- Phase 1 : catagène — le follicule se rétracte ---- */}
+      {/* ---- Phase 1 : catagène, le follicule se rétracte ---- */}
       <g className="follicle" style={on(1)}>
         <path d="M192 218 Q189 110 197 48" stroke="#5D4A38" strokeWidth="6.5" strokeLinecap="round" fill="none" />
         <path d="M178 180 Q176 222 192 228 Q208 222 205 180 Q203 150 192 150 Q180 150 178 180 Z" fill="#E2C4A4" stroke="#C9A583" strokeWidth="2" />
@@ -39,7 +39,7 @@ export default function CycleDiagram({ phase }: { phase: number }) {
         <path d="M186 258 Q192 240 198 258" stroke="#C9A583" strokeWidth="2" strokeDasharray="3 5" fill="none" />
       </g>
 
-      {/* ---- Phase 2 : télogène — repos, le poil se détache ---- */}
+      {/* ---- Phase 2 : télogène, au repos, le poil se détache ---- */}
       <g className="follicle" style={on(2)}>
         <path d="M204 148 Q203 104 210 60" stroke="#6E5A45" strokeWidth="6" strokeLinecap="round" fill="none" />
         <path d="M192 128 Q190 152 204 156 Q218 152 216 128 Q214 112 204 112 Q194 112 192 128 Z" fill="#E2C4A4" stroke="#C9A583" strokeWidth="2" />

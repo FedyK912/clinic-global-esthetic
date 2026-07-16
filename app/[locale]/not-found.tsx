@@ -8,8 +8,8 @@ export default function NotFound() {
         <div className="eyebrow">Erreur 404 · Error 404</div>
         <h1>Cette page n'existe pas.</h1>
         <p>
-          Le lien que vous avez suivi ne mène nulle part — mais nos soins, eux,
-          sont bien là. / This page does not exist, but our treatments are very
+          Le lien que vous avez suivi ne mène nulle part. Nos soins, eux, sont
+          bien là. / This page does not exist, but our treatments are very
           real.
         </p>
         <div style={{ display: "flex", gap: 14, marginTop: 32, flexWrap: "wrap" }}>

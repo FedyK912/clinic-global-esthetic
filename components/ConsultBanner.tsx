@@ -2,7 +2,7 @@ import Link from "next/link";
 import { p, type Dict, type Locale } from "@/lib/i18n";
 
 /**
- * Bannière « première consultation gratuite » — l'appel à l'action clé du
+ * Bannière « première consultation gratuite » : l'appel à l'action clé du
  * site. `title`/`text` permettent de varier le message selon la page pour
  * éviter la clôture identique partout.
  */

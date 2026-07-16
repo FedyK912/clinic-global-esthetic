@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-/** Fil de progression de lecture — trait doré sous le header. */
+/** Fil de progression de lecture : trait doré sous le header. */
 export default function ScrollProgress() {
   const ref = useRef<HTMLDivElement>(null);
 

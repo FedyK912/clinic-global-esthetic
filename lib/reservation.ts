@@ -36,8 +36,8 @@ export type ReservationPayload = {
   timeslot?: string;
   service?: string;
   message?: string;
-  locale?: string; // "fr" | "en" — langue de l'accusé de réception
-  website?: string; // honeypot anti-spam — doit rester vide
+  locale?: string; // "fr" | "en" : langue de l'accusé de réception
+  website?: string; // honeypot anti-spam, doit rester vide
 };
 
 export function motifLabel(key: string): string {

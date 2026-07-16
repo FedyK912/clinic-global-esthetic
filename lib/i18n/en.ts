@@ -27,18 +27,18 @@ export const en: typeof fr = {
     per45: " / 45 min",
     approx1h: "≈ 1 h",
     dur45: "45 min",
-    freeBadge: "Free first consultation — skin assessment & quote",
+    freeBadge: "Free first consultation: skin assessment & quote",
     consultTitle: "Free first consultation",
     consultText:
-      "A full assessment of your skin and hair growth, answers to all your questions and a precise quote — in 30 minutes, with no commitment and no pressure.",
+      "A full assessment of your skin and hair growth, answers to all your questions and a precise quote, all in 30 minutes, with no commitment and no pressure.",
     consultCta: "Book my free assessment",
-    resultNote: "Individual result observed at the clinic — not contractual.",
+    resultNote: "Individual result observed at the clinic, not contractual.",
     bookThis: "Book this treatment",
   },
 
   home: {
     metaTitle:
-      "Clinic Global Esthetic — Medical laser hair removal & aesthetic treatments, Geneva",
+      "Clinic Global Esthetic | Medical laser hair removal & aesthetic treatments, Geneva",
     metaDesc:
       "Medical laser hair removal and face & body aesthetic treatments in Meyrin, Geneva. Free first consultation, reply within one business day.",
     heroEyebrow: "Medical laser hair removal · Geneva",
@@ -48,29 +48,29 @@ export const en: typeof fr = {
     heroTitlePost: ",",
     heroTitle3: "designed for your skin.",
     heroLead:
-      "For over 25 years, Clinic Global Esthetic has cared for its patients in Meyrin with proven medical technology, personalised protocols and an honest approach — far from unrealistic promises.",
+      "For over 25 years, Clinic Global Esthetic has cared for its patients in Meyrin with proven medical technology, personalised protocols and an honest approach, far from unrealistic promises.",
     stats: [
       { b: "25+", s: "years of experience" },
       { b: "Up to 80%", s: "observed reduction, by area" },
       { b: "6–8", s: "sessions on average" },
     ],
-    scanCaption: ["810NM DIODE — AT THE CLINIC", "REAL SESSION"],
+    scanCaption: ["810NM DIODE · AT THE CLINIC", "REAL SESSION"],
     heroPhotoAlt:
-      "Medical laser hair removal session at the clinic — treating the legs after area marking",
+      "Medical laser hair removal session at the clinic, treating the legs after area marking",
     aboutEyebrow: "Our story",
     aboutTitle: "One clinic, one standard: yours.",
     aboutP1:
-      "Clinic Global Esthetic was born from a simple conviction: skin care and hair removal deserve the same rigour as a medical procedure. For over 25 years, our team has been dedicated to aesthetics and well-being, with one unchanging principle — real results over inflated promises.",
+      "Clinic Global Esthetic was born from a simple conviction: skin care and hair removal deserve the same rigour as a medical procedure. For over 25 years, our team has been dedicated to aesthetics and well-being, with one unchanging principle: real results over inflated promises.",
     aboutP2:
-      "Based in Meyrin, we chose recognised medical technology over fashionable gadgets: medical laser, radiofrequency, microneedling, HydraFacial. Every protocol is tailored to your skin, your hair and your goals — never standardised.",
+      "Based in Meyrin, we chose recognised medical technology over fashionable gadgets: medical laser, radiofrequency, microneedling, HydraFacial. Every protocol is tailored to your skin, your hair and your goals, never standardised.",
     figures: [
-      { b: "0", s: "fads — only recognised medical technology" },
+      { b: "0", s: "fads, only recognised medical technology" },
       { b: "1 to 1", s: "Every protocol personalised, session after session" },
     ],
     founderEyebrow: "Who welcomes you",
     founderTitle: "Najla, founder",
     founderP1:
-      "Behind Clinic Global Esthetic is a practitioner with over 25 years of experience — who personally welcomes every patient, from the first assessment to result follow-up.",
+      "Behind Clinic Global Esthetic is a practitioner with over 25 years of experience, who personally welcomes every patient, from the first assessment to result follow-up.",
     founderP2:
       "Her method comes down to three habits: listening before recommending, saying honestly what a treatment can do (and cannot do), and adjusting every protocol to the person rather than applying a recipe.",
     founderFacts: [
@@ -79,6 +79,25 @@ export const en: typeof fr = {
       "Free initial assessment, no-pressure recommendation",
     ],
     founderPhotoAlt: "Najla, founder of Clinic Global Esthetic",
+    cabinet: {
+      eyebrow: "The clinic",
+      title: "A space designed for your peace of mind",
+      text: "In the heart of Meyrin, inside the Alpha Business Centre: a calm, light-filled space equipped with up-to-date medical technology. Step inside, we take care of the rest.",
+      photos: [
+        {
+          caption: "The waiting area",
+          alt: "The clinic's waiting area: cream bouclé armchairs, a large mirror and the treatment room in the background",
+        },
+        {
+          caption: "The treatment room",
+          alt: "The clinic's treatment room with the treatment bed and the 810 nm diode laser",
+        },
+        {
+          caption: "Alpha Business Centre · entrance 71",
+          alt: "The Alpha Business Centre building at 71 avenue Louis-Casaï in Meyrin, home to the clinic",
+        },
+      ],
+    },
     protocolEyebrow: "How it works",
     protocolTitle: "The protocol, step by step",
     protocolText:
@@ -102,17 +121,17 @@ export const en: typeof fr = {
       {
         num: "04 / FOLLOW-UP",
         title: "Continuous adjustment",
-        text: "At every appointment, the protocol is reassessed and fine-tuned — so every session truly counts.",
+        text: "At every appointment, the protocol is reassessed and fine-tuned, so every session truly counts.",
       },
     ],
     teaserEyebrow: "Our treatments",
-    teaserTitle: "Laser, face, body — the same rigour throughout",
+    teaserTitle: "Laser, face, body: the same rigour throughout",
     teaserText:
       "Three families of treatments, one standard: recognised medical technology and measurable results.",
     teasers: [
       {
         title: "Laser hair removal",
-        text: "All areas, women & men. Transparent area-by-area pricing, the protocol explained — and the hair growth cycle demystified.",
+        text: "All areas, women & men. Transparent area-by-area pricing, the protocol explained, and the hair growth cycle demystified.",
         cta: "See laser pricing",
       },
       {
@@ -136,40 +155,40 @@ export const en: typeof fr = {
   cycle: {
     eyebrow: "Why several sessions",
     title: "Not all hairs grow at the same time",
-    text: "At each session, the laser only targets hairs in their active growth phase. This natural cycle — not any lack of laser efficacy — is why several spaced sessions are needed.",
+    text: "At each session, the laser only targets hairs in their active growth phase. This natural cycle, not any lack of laser efficacy, is why several spaced sessions are needed.",
     phases: [
       {
-        title: "Anagen phase — growth",
+        title: "Anagen phase: growth",
         text: "The hair is active and nourished: this is the only phase where the laser can destroy it permanently.",
-        tag: "ANAGEN — GROWTH",
+        tag: "ANAGEN · GROWTH",
       },
       {
-        title: "Catagen phase — transition",
+        title: "Catagen phase: transition",
         text: "The hair stops being nourished and gradually detaches from its root.",
-        tag: "CATAGEN — TRANSITION",
+        tag: "CATAGEN · TRANSITION",
       },
       {
-        title: "Telogen phase — rest",
+        title: "Telogen phase: rest",
         text: "The hair is resting and will fall out naturally, without any laser action.",
-        tag: "TELOGEN — REST",
+        tag: "TELOGEN · REST",
       },
     ],
-    sceneTag: "SKIN CROSS-SECTION — FOLLICLE",
+    sceneTag: "SKIN CROSS-SECTION · FOLLICLE",
     sceneAria:
       "Diagram of a skin cross-section showing the hair follicle in the selected cycle phase",
   },
 
   laser: {
     metaTitle:
-      "Medical laser hair removal — Women's & men's prices | Clinic Global Esthetic",
+      "Medical laser hair removal, women's & men's prices | Clinic Global Esthetic",
     metaDesc:
       "Medical laser hair removal in Meyrin, Geneva. 810 nm diode, detailed pricing by area for women and men. Free first consultation.",
     headTitle: "Medical laser hair removal",
     headText:
       "Medical laser hair removal is today the most effective way to reduce hair growth for good. Unlike shaving, waxing or plucking, it delivers progressive, lasting results with serious medical supervision.",
     photoAlt:
-      "Medical laser hair removal session at the clinic — treating the legs after area marking",
-    photoCaption: ["MEDICAL TECHNOLOGY — 810NM DIODE", "REAL TREATMENT SESSION"],
+      "Medical laser hair removal session at the clinic, treating the legs after area marking",
+    photoCaption: ["MEDICAL TECHNOLOGY · 810NM DIODE", "REAL TREATMENT SESSION"],
     statB: "6–8 sessions",
     statText:
       "on average for an optimal result. Reduction is usually noticeable within the first few sessions, with up to 80% observed by the 4th depending on the area and skin type.",
@@ -205,19 +224,19 @@ export const en: typeof fr = {
       },
     ],
     techSpecs: [
-      "810 nm diode — the reference wavelength",
-      "Contact cooling — maximum comfort",
-      "Fair to dark skin — settings by phototype",
-      "Women & men — all areas",
+      "810 nm diode: the reference wavelength",
+      "Contact cooling: maximum comfort",
+      "Fair to dark skin: settings by phototype",
+      "Women & men: all areas",
     ],
     pricesEyebrow: "Pricing by area",
     ctaConsult: "Book a free consultation",
     menEyebrow: "Women & men",
     menTitle: "Male hair removal, an expertise in its own right",
     menText:
-      "Back, chest, shoulders, beard contouring: male hair growth calls for specific settings and precise area-by-area marking. Nearly half of our patients are men — there is nothing taboo about it, and the result is just as lasting.",
+      "Back, chest, shoulders, beard contouring: male hair growth calls for specific settings and precise area-by-area marking. Nearly half of our patients are men. There is nothing taboo about it, and the result is just as lasting.",
     menPhotoAlt:
-      "Preparing a men's back laser hair removal session — marking the areas with a white pencil",
+      "Preparing a men's back laser hair removal session, marking the areas with a white pencil",
     menCta: "See men's pricing",
     sessionEyebrow: "Your session",
     sessionTitle: "One session, four steps",
@@ -248,17 +267,17 @@ export const en: typeof fr = {
     resultsText:
       "A few photos from our patient follow-ups, showing how hair growth evolves over the course of medical laser sessions.",
     galleryAlts: [
-      "Laser treatment progress — follow-up 1",
-      "Laser treatment progress — follow-up 2",
-      "Laser treatment progress — follow-up 3",
-      "Laser treatment progress — follow-up 4",
+      "Laser treatment progress: follow-up 1",
+      "Laser treatment progress: follow-up 2",
+      "Laser treatment progress: follow-up 3",
+      "Laser treatment progress: follow-up 4",
     ],
     galleryNote:
       "Results vary with the treated area, skin and hair type, and each patient's hormonal balance.",
     faqEyebrow: "Frequently asked questions",
     faqTitle: "What we are asked most often",
     faqText:
-      "Straight answers, no jargon and no overpromising — just like during the free assessment.",
+      "Straight answers, no jargon and no overpromising, just like during the free assessment.",
     faq: [
       {
         q: "Does laser hair removal hurt?",
@@ -270,15 +289,15 @@ export const en: typeof fr = {
       },
       {
         q: "How should I prepare for a session?",
-        a: "Shave the area 24 to 48 hours before the session, avoid sun exposure and self-tanner in the preceding weeks, and do not pull hairs out at the root (wax, tweezers) between sessions — the laser needs the root to work.",
+        a: "Shave the area 24 to 48 hours before the session, avoid sun exposure and self-tanner in the preceding weeks, and do not pull hairs out at the root (wax, tweezers) between sessions: the laser needs the root to work.",
       },
       {
         q: "Is the laser suitable for all skin types?",
-        a: "The 810 nm diode treats most phototypes, including darker skin, with adapted settings. Very fair, white or red hair, however, responds poorly to laser — we will tell you honestly during the free assessment.",
+        a: "The 810 nm diode treats most phototypes, including darker skin, with adapted settings. Very fair, white or red hair, however, responds poorly to laser. We will tell you honestly during the free assessment.",
       },
       {
         q: "What are the possible side effects?",
-        a: "Redness or a local warm sensation may appear for a few hours after the session — this is normal and temporary. Sun protection is recommended on the treated area. The prior assessment rules out any contraindications.",
+        a: "Redness or a local warm sensation may appear for a few hours after the session. This is normal and temporary. Sun protection is recommended on the treated area. The prior assessment rules out any contraindications.",
       },
     ],
   },
@@ -290,12 +309,12 @@ export const en: typeof fr = {
 
   face: {
     metaTitle:
-      "Facial treatments — HydraFacial, CO2 Laser, Microneedling | Clinic Global Esthetic",
+      "Facial treatments, HydraFacial, CO2 Laser, Microneedling | Clinic Global Esthetic",
     metaDesc:
       "Aesthetic facial treatments in Meyrin, Geneva: HydraFacial, CO2 laser, microneedling, carbon peel, focused ultrasound, radiofrequency.",
     headTitle: "Facial treatments",
     headText:
-      "Recognised medical technology to renew, purify and firm the skin — no overpromising, with a protocol adapted to every skin type.",
+      "Recognised medical technology to renew, purify and firm the skin: no overpromising, with a protocol adapted to every skin type.",
     cta: "Book a facial treatment",
     gridTitle: "Six treatments, one goal: healthy skin",
     soins: [
@@ -306,7 +325,7 @@ export const en: typeof fr = {
       },
       {
         title: "CO₂ laser",
-        text: "Renews the skin in depth: the CO₂ laser triggers intense skin regeneration — ideal for wrinkles, scars and dark spots.",
+        text: "Renews the skin in depth: the CO₂ laser triggers intense skin regeneration, ideal for wrinkles, scars and dark spots.",
         alt: "CO2 laser",
       },
       {
@@ -326,7 +345,7 @@ export const en: typeof fr = {
       },
       {
         title: "Radiofrequency",
-        text: "Electromagnetic waves that heat the tissue in depth, stimulating collagen and elastin. Firmer skin, redefined contours — a comfortable treatment with no social downtime.",
+        text: "Electromagnetic waves that heat the tissue in depth, stimulating collagen and elastin. Firmer skin, redefined contours. A comfortable treatment with no social downtime.",
         alt: "Radiofrequency",
       },
     ],
@@ -334,7 +353,7 @@ export const en: typeof fr = {
     faq: [
       {
         q: "Which treatment is right for my skin?",
-        a: "That is exactly what the free first consultation is for: a skin assessment, then a clear recommendation — sometimes a single treatment is enough. No commitment.",
+        a: "That is exactly what the free first consultation is for: a skin assessment, then a clear recommendation. Sometimes a single treatment is enough. No commitment.",
       },
       {
         q: "How many sessions should I plan?",
@@ -349,12 +368,12 @@ export const en: typeof fr = {
 
   body: {
     metaTitle:
-      "Body treatments — Tattoo removal, EMSculpt, Pressotherapy | Clinic Global Esthetic",
+      "Body treatments, tattoo removal, EMSculpt, pressotherapy | Clinic Global Esthetic",
     metaDesc:
       "Body treatments in Meyrin, Geneva: laser tattoo removal, EMSculpt, pressotherapy, body contouring.",
     headTitle: "Body treatments",
     headText:
-      "Laser tattoo removal, muscle sculpting and lymphatic drainage — medical technology for tangible results, without surgery.",
+      "Laser tattoo removal, muscle sculpting and lymphatic drainage: medical technology for tangible results, without surgery.",
     cta: "Book a body treatment",
     gridTitle: "Three targeted treatments",
     traitements: [
@@ -378,7 +397,7 @@ export const en: typeof fr = {
     faq: [
       {
         q: "Does tattoo removal work in a single session?",
-        a: "No — the laser fragments the pigments progressively, over several sessions spaced weeks apart. The number depends on the ink, depth and age of the tattoo; the free assessment gives you an honest estimate.",
+        a: "No, the laser fragments the pigments progressively, over several sessions spaced weeks apart. The number depends on the ink, depth and age of the tattoo; the free assessment gives you an honest estimate.",
       },
       {
         q: "Does EMSculpt replace exercise?",
@@ -386,24 +405,24 @@ export const en: typeof fr = {
       },
       {
         q: "Who is pressotherapy for?",
-        a: "Heavy legs, water retention and recovery. It is a gentle 45-minute session; contraindications — vascular ones in particular — are ruled out during the assessment.",
+        a: "Heavy legs, water retention and recovery. It is a gentle 45-minute session; contraindications, vascular ones in particular, are ruled out during the assessment.",
       },
     ],
     resultEyebrow: "Real results",
-    resultTitle: "Body contouring — before / after",
+    resultTitle: "Body contouring: before / after",
     resultText:
       "Result achieved at the clinic after a body contouring protocol combining radiofrequency and ultrasound. The skin is visibly tightened and smoothed.",
     resultAlt:
-      "Before / after of a body contouring protocol at the clinic — visibly firmer stomach skin",
+      "Before / after of a body contouring protocol at the clinic, showing visibly firmer stomach skin",
     beforeLabel: "BEFORE",
     afterLabel: "AFTER",
-    beforeAlt: "Before the body contouring protocol — loose stomach skin",
-    afterAlt: "After the body contouring protocol — visibly firmer skin",
+    beforeAlt: "Before the body contouring protocol: loose stomach skin",
+    afterAlt: "After the body contouring protocol: visibly firmer skin",
     sliderAria: "Compare before and after by dragging the handle",
   },
 
   booking: {
-    metaTitle: "Book an appointment — Clinic Global Esthetic, Meyrin Geneva",
+    metaTitle: "Book an appointment | Clinic Global Esthetic, Meyrin Geneva",
     metaDesc:
       "Book online at Clinic Global Esthetic in Meyrin, Geneva: real-time calendar with instant confirmation, or an e-mail request. Free first consultation.",
     headTitle: "Book an appointment",
@@ -413,20 +432,20 @@ export const en: typeof fr = {
       fresha: {
         tag: "Fastest",
         title: "Pick your slot online",
-        text: "Real-time calendar: choose your treatment and time — instant e-mail confirmation and an automatic reminder the day before your appointment.",
+        text: "Real-time calendar: choose your treatment and time, with instant e-mail confirmation and an automatic reminder the day before your appointment.",
         cta: "Open the calendar",
       },
       form: {
         tag: "Personalised request",
         title: "Or send us your request",
-        text: "Hesitating between treatments, or prefer to describe your situation? Write to us below — personal reply within one business day.",
+        text: "Hesitating between treatments, or prefer to describe your situation? Write to us below and you will receive a personal reply within one business day.",
         cta: "Fill in the request",
       },
     },
-    step1: "01 — Reason for your visit",
-    step2: "02 — Your availability",
-    step3: "03 — Your contact details",
-    waitingHint: "First choose a reason above — the form will then activate.",
+    step1: "01 · Reason for your visit",
+    step2: "02 · Your availability",
+    step3: "03 · Your contact details",
+    waitingHint: "First choose a reason above, and the form will then activate.",
     freeTag: "FREE",
     motifs: {
       consultation: { label: "Free consultation", desc: "1st visit, skin assessment · 30 min" },
@@ -474,30 +493,33 @@ export const en: typeof fr = {
     },
     errorValidation: "Please check the fields highlighted above.",
     errorRate:
-      "Too many requests — please try again in a few minutes, or contact us directly below.",
+      "Too many requests. Please try again in a few minutes, or contact us directly below.",
     errorSend1: "Automatic sending failed. Your request is not lost: send it in one click by ",
     errorSendMail: "pre-filled e-mail",
     errorSendOr: " or via ",
     errorSend2: "Or call us: ",
     sentEyebrow: "Request sent",
-    sentTitle: "Thank you — request received.",
+    sentTitle: "Thank you, request received.",
     sentText1: "Your request has been sent to the clinic. We will confirm your slot by e-mail or phone as soon as possible.",
     sentText2: "A confirmation receipt has just been sent to",
     whatsappIntro: "Hello, I would like an appointment for:",
     mailSubject: "Appointment request",
     mapTitle: "Clinic Global Esthetic location, Av. Louis-Casaï 71, 1216 Meyrin",
+    landmarkCaption: "Alpha Business Centre · entrance 71",
+    landmarkAlt:
+      "The Alpha Business Centre building at 71 avenue Louis-Casaï in Meyrin: look for this façade, the clinic is inside",
     contactLabels: { phone: "PHONE", mail: "EMAIL", whatsapp: "WHATSAPP" },
     rail: ["Reason", "Availability", "Your details"],
     directTitle: "Prefer to reach us directly?",
     directText:
-      "Call, write or use WhatsApp — we reply quickly during opening hours.",
+      "Call, write or use WhatsApp: we reply quickly during opening hours.",
     tileWhatsappText: "Send a message",
   },
 
   gift: {
     eyebrow: "Gift card",
     title: "Give a treatment, not just an object.",
-    text: "Laser hair removal, a facial or a moment of pure relaxation — treat someone close to you with a Clinic Global Esthetic gift card, tailored to your budget.",
+    text: "Laser hair removal, a facial or a moment of pure relaxation: treat someone close to you with a Clinic Global Esthetic gift card, tailored to your budget.",
     cta: "Request a gift card",
     mailSubject: "Gift card request",
   },
@@ -513,19 +535,19 @@ export const en: typeof fr = {
       "Saturday: 9am – 1pm",
       "Sunday: closed",
     ],
-    rights: "Clinic Global Esthetic — Meyrin, Geneva",
+    rights: "Clinic Global Esthetic · Meyrin, Geneva",
     legalNotice: "Legal notice",
     privacy: "Privacy",
   },
 
   legal: {
     noticeTitle: "Legal notice",
-    noticeMeta: "Legal notice — Clinic Global Esthetic, Meyrin Geneva",
+    noticeMeta: "Legal notice | Clinic Global Esthetic, Meyrin Geneva",
     noticeSections: [
       {
         h: "Site operator",
         p: [
-          "Clinic Global Esthetic — medical laser hair removal and aesthetic treatments clinic.",
+          "Clinic Global Esthetic, medical laser hair removal and aesthetic treatments clinic.",
           "Av. Louis-Casaï 71, 1216 Meyrin, Switzerland.",
           "Phone: (+41) 078 346 42 01 · E-mail: contact@globalaesthetic.ch",
         ],
@@ -551,14 +573,14 @@ export const en: typeof fr = {
       },
     ],
     privacyTitle: "Privacy policy",
-    privacyMeta: "Privacy policy — Clinic Global Esthetic, Meyrin Geneva",
+    privacyMeta: "Privacy policy | Clinic Global Esthetic, Meyrin Geneva",
     privacyIntro:
       "Clinic Global Esthetic takes the protection of your personal data seriously. This policy describes the data processed through this site, in accordance with the Swiss Federal Act on Data Protection (nFADP).",
     privacySections: [
       {
         h: "Data controller",
         p: [
-          "Clinic Global Esthetic, Av. Louis-Casaï 71, 1216 Meyrin, Switzerland — contact@globalaesthetic.ch, (+41) 078 346 42 01.",
+          "Clinic Global Esthetic, Av. Louis-Casaï 71, 1216 Meyrin, Switzerland · contact@globalaesthetic.ch, (+41) 078 346 42 01.",
         ],
       },
       {
@@ -594,7 +616,7 @@ export const en: typeof fr = {
   notFound: {
     eyebrow: "Error 404",
     title: "This page does not exist.",
-    text: "The link you followed leads nowhere — but our treatments are very real.",
+    text: "The link you followed leads nowhere, but our treatments are very real.",
     home: "Back to home",
     book: "Book an appointment",
   },

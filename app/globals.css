@@ -753,6 +753,91 @@ footer{background:var(--paper); color:var(--ink-soft); padding:var(--s-10) 0 28p
   overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
 }
 
+/* ---------- LE CABINET (visite en profondeur) ---------- */
+.cabinet-section{background:var(--ink); overflow:hidden;}
+.cabinet-section .eyebrow{color:var(--gold-soft);}
+.cabinet-section .section-head h2{color:var(--paper);}
+.cabinet-section .section-head p{color:rgba(253,251,248,0.68);}
+.cabinet{--px:0; --py:0;}
+.cabinet-stage{
+  perspective:1400px;
+  max-width:680px; margin:0 auto;
+}
+.cabinet-space{
+  position:relative; aspect-ratio:4/3;
+  transform-style:preserve-3d;
+  transform:rotateY(calc(var(--px)*4.5deg)) rotateX(calc(var(--py)*-3deg));
+  transition:transform .3s ease-out;
+}
+.cabinet-card{
+  position:absolute; inset:0; margin:0;
+  border-radius:var(--radius-md); overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,0.5);
+  cursor:pointer;
+  transition:transform .85s cubic-bezier(.22,.6,.2,1), opacity .6s ease, filter .6s ease;
+}
+.cabinet-card img{width:100%; height:100%; object-fit:cover; display:block;}
+.cabinet-card.is-active{transform:translateZ(0); opacity:1; filter:none; z-index:3;}
+.cabinet-card.is-right{
+  transform:translateX(15%) translateZ(-170px) rotateY(-10deg);
+  opacity:.42; filter:brightness(.65); z-index:2;
+}
+.cabinet-card.is-left{
+  transform:translateX(-15%) translateZ(-170px) rotateY(10deg);
+  opacity:.42; filter:brightness(.65); z-index:1;
+}
+.cabinet-caption{
+  position:absolute; bottom:0; left:0; right:0;
+  font-family:var(--font-mono),monospace; font-size:11px; letter-spacing:0.08em;
+  color:#F6F1E8; text-transform:uppercase;
+  padding:28px 16px 13px;
+  background:linear-gradient(180deg, transparent, rgba(30,25,20,0.62));
+}
+.cabinet-thumbs{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:var(--s-3); margin-top:var(--s-6);
+}
+.cabinet-thumb{
+  display:flex; align-items:center; gap:10px;
+  background:transparent; border:1px solid rgba(253,251,248,0.2);
+  border-radius:var(--radius-pill); padding:5px 16px 5px 5px;
+  font-family:inherit; font-size:10.5px; letter-spacing:0.1em;
+  text-transform:uppercase; font-weight:600;
+  color:rgba(253,251,248,0.72); cursor:pointer;
+  transition:border-color .2s ease, color .2s ease, background .2s ease;
+}
+.cabinet-thumb img{width:34px; height:34px; border-radius:50%; object-fit:cover; display:block;}
+.cabinet-thumb:hover{border-color:var(--gold-soft); color:var(--paper);}
+.cabinet-thumb[aria-pressed="true"]{
+  border-color:var(--gold-soft); color:var(--gold-soft);
+  background:rgba(217,188,140,0.09);
+}
+.cabinet-thumb:focus-visible{outline:none; box-shadow:var(--shadow-focus);}
+@media (max-width: 640px){
+  .cabinet-card.is-right{transform:translateX(9%) translateZ(-130px) rotateY(-8deg);}
+  .cabinet-card.is-left{transform:translateX(-9%) translateZ(-130px) rotateY(8deg);}
+  .cabinet-thumb span{max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+}
+@media (prefers-reduced-motion: reduce){
+  .cabinet-space{transform:none; transition:none;}
+  .cabinet-card{transition:opacity .3s ease;}
+}
+
+/* Repère visuel du bâtiment sur la page rendez-vous */
+.landmark{
+  margin:0 0 var(--s-4); position:relative;
+  border-radius:var(--radius-md); overflow:hidden;
+  box-shadow:var(--shadow-photo);
+}
+.landmark img{width:100%; height:auto; display:block; aspect-ratio:16/10; object-fit:cover;}
+.landmark figcaption{
+  position:absolute; bottom:0; left:0; right:0;
+  font-family:var(--font-mono),monospace; font-size:11px; letter-spacing:0.08em;
+  color:#F6F1E8; text-transform:uppercase;
+  padding:28px 16px 13px;
+  background:linear-gradient(180deg, transparent, rgba(30,25,20,0.62));
+}
+
 /* ---------- FORMULAIRE DE RÉSERVATION ---------- */
 .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--s-3);}
 .field{display:flex; flex-direction:column; gap:6px;}
