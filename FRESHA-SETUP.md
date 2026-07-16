@@ -1,4 +1,4 @@
-# Guide Fresha — agenda en ligne de Clinic Global Esthetic
+# Guide Fresha, agenda en ligne de Clinic Global Esthetic
 
 Fresha redonne au site les fonctions de l'ancien Wix Bookings, gratuitement :
 agenda avec créneaux en temps réel, **confirmation immédiate par e-mail** et
@@ -7,10 +7,10 @@ pour gérer les rendez-vous depuis le téléphone.
 
 > Fresha est gratuit pour les réservations venant de VOTRE site ou de votre
 > lien direct. Ils se rémunèrent sur les nouveaux clients apportés par LEUR
-> marketplace et sur l'encaissement par carte (optionnel — ne pas l'activer
+> marketplace et sur l'encaissement par carte (optionnel, ne pas l'activer
 > si non désiré).
 
-## Étape 1 — Créer le compte professionnel (10 min)
+## Étape 1, Créer le compte professionnel (10 min)
 
 1. Aller sur **https://www.fresha.com/fr/for-business** → « Commencer »
 2. S'inscrire avec l'adresse **contact@globalaesthetic.ch**
@@ -20,7 +20,7 @@ pour gérer les rendez-vous depuis le téléphone.
    - Adresse : **Av. Louis-Casaï 71, 1216 Meyrin, Suisse**
    - Téléphone : **078 346 42 01**
 
-## Étape 2 — Horaires d'ouverture (2 min)
+## Étape 2, Horaires d'ouverture (2 min)
 
 Paramètres → Horaires d'ouverture :
 
@@ -30,12 +30,12 @@ Paramètres → Horaires d'ouverture :
 | Samedi | 9h00 – 13h00 |
 | Dimanche | Fermé |
 
-## Étape 3 — Créer la carte de soins (15 min — copier ce tableau)
+## Étape 3, Créer la carte de soins (15 min, copier ce tableau)
 
 ### Consultation
 | Soin | Durée | Prix |
 |---|---|---|
-| Première consultation gratuite — bilan de peau | 30 min | Gratuit |
+| Première consultation gratuite · bilan de peau | 30 min | Gratuit |
 
 ### Soins du visage
 | Soin | Durée | Prix |
@@ -54,9 +54,9 @@ Paramètres → Horaires d'ouverture :
 | EMSculpt | 1 h | 150 CHF |
 | Pressothérapie | 45 min | 120 CHF |
 
-### Épilation laser — zones les plus demandées
+### Épilation laser : zones les plus demandées
 *(commencer par celles-ci ; les autres zones du tarif complet peuvent être
-ajoutées ensuite, ou traitées via « Autre zone — sur devis »)*
+ajoutées ensuite, ou traitées via « Autre zone, sur devis »)*
 
 | Zone | Durée conseillée | Prix |
 |---|---|---|
@@ -70,16 +70,16 @@ ajoutées ensuite, ou traitées via « Autre zone — sur devis »)*
 | Barbe (homme) | 30 min | 95 CHF |
 | Torse (homme) | 45 min | 190 CHF |
 | Haut du dos avec épaules (homme) | 45 min | 280 CHF |
-| Autre zone — sur devis (préciser en commentaire) | 30 min | Sur devis |
+| Autre zone, sur devis (préciser en commentaire) | 30 min | Sur devis |
 
-## Étape 4 — Activer confirmations et rappels (3 min)
+## Étape 4, Activer confirmations et rappels (3 min)
 
 Paramètres → **Notifications clients** :
 - ✅ E-mail de confirmation de réservation (immédiat)
 - ✅ **Rappel par e-mail : 1 jour avant** le rendez-vous
-- (Optionnel) rappel SMS — vérifier le coût éventuel avant d'activer
+- (Optionnel) rappel SMS, vérifier le coût éventuel avant d'activer
 
-## Étape 5 — Récupérer le lien de réservation (1 min)
+## Étape 5, Récupérer le lien de réservation (1 min)
 
 Paramètres → **Réservation en ligne** → copier le **lien de votre page de
 réservation** (« Book now link », de la forme
@@ -89,7 +89,7 @@ réservation** (« Book now link », de la forme
 (globalaesthetic.ch/fr/rendez-vous affichera alors un grand bouton
 « Ouvrir l'agenda de réservation » au-dessus du formulaire).
 
-## Étape 6 — Application mobile (2 min)
+## Étape 6, Application mobile (2 min)
 
 Installer **« Fresha for business »** (App Store / Google Play) et se
 connecter : votre maman verra et gérera tous les rendez-vous depuis son
